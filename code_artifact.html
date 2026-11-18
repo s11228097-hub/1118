@@ -1,0 +1,2876 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《我們的生活區》｜在雲海與星光之間，邂逅動靜皆宜的理想日常</title>
+  <!-- 載入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 載入 Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- 載入詩意襯線與現代無襯線繁體中文字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'Georgia', 'serif'],
+          },
+          colors: {
+            twilight: {
+              950: '#0b1024',
+              900: '#111936',
+              800: '#1a254b',
+              700: '#23315c',
+              600: '#35477d',
+            },
+            sunbeam: {
+              200: '#fff2cc',
+              300: '#ffe599',
+              400: '#ffd166',
+              500: '#f6bd60',
+              600: '#e09f3e',
+            },
+            dawn: {
+              300: '#fad2c5',
+              400: '#f4a28c',
+              500: '#e8836b',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* 《光·遇》風格：深邃暮色靛藍至柔霧薰衣草紫與暖金晨曦的漸層天空 */
+    body {
+      background: linear-gradient(180deg, #111936 0%, #1b2750 28%, #23315c 55%, #182144 82%, #0e142d 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    /* 雲霧毛玻璃質感面板 */
+    .cloud-glass {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 209, 102, 0.22);
+      box-shadow: 0 12px 40px rgba(8, 12, 30, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    .cloud-glass-deep {
+      background: rgba(17, 25, 54, 0.74);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 209, 102, 0.3);
+      box-shadow: 0 18px 50px rgba(6, 10, 24, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
+
+    .cloud-card {
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.04) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 32px rgba(8, 12, 30, 0.35);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .cloud-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 209, 102, 0.5);
+      box-shadow: 0 18px 44px rgba(10, 15, 38, 0.6), 0 0 28px rgba(255, 209, 102, 0.16);
+    }
+
+    /* 金色微光文字陰影 */
+    .sky-title-glow {
+      text-shadow: 0 0 28px rgba(255, 209, 102, 0.48), 0 4px 16px rgba(8, 12, 28, 0.65);
+    }
+
+    /* 飄浮雲層視差動畫 */
+    @keyframes cloudDriftSlow {
+      0% { transform: translateX(-3%) translateY(0px); }
+      50% { transform: translateX(3%) translateY(-8px); }
+      100% { transform: translateX(-3%) translateY(0px); }
+    }
+
+    .parallax-cloud-1 {
+      animation: cloudDriftSlow 24s ease-in-out infinite;
+    }
+    .parallax-cloud-2 {
+      animation: cloudDriftSlow 32s ease-in-out infinite reverse;
+    }
+
+    /* 主視覺背景 Ken Burns 緩慢呼吸推拉 */
+    @keyframes kenBurnsSky {
+      0% { transform: scale(1) translate(0, 0); }
+      50% { transform: scale(1.06) translate(-1%, -0.6%); }
+      100% { transform: scale(1) translate(0, 0); }
+    }
+
+    .hero-zoom-active {
+      animation: kenBurnsSky 20s ease-in-out infinite;
+    }
+
+    /* 光翼菱形光點脈衝動畫 */
+    @keyframes wingedLightPulse {
+      0%, 100% {
+        transform: scale(1) rotate(45deg);
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.8), 0 0 20px rgba(255, 209, 102, 0.95);
+      }
+      50% {
+        transform: scale(1.18) rotate(45deg);
+        box-shadow: 0 0 0 14px rgba(255, 209, 102, 0), 0 0 30px rgba(255, 229, 153, 1);
+      }
+    }
+
+    .winged-pin-diamond {
+      animation: wingedLightPulse 2.4s infinite ease-in-out;
+    }
+
+    /* 豎琴旋律聲波律動 */
+    @keyframes harpWave {
+      0%, 100% { height: 4px; }
+      50% { height: 15px; }
+    }
+    .wave-1 { animation: harpWave 0.95s infinite ease-in-out; }
+    .wave-2 { animation: harpWave 0.7s infinite ease-in-out 0.2s; }
+    .wave-3 { animation: harpWave 1.1s infinite ease-in-out 0.4s; }
+
+    /* 全息社區居民通行證折射光澤 */
+    .pass-holo-sheen {
+      background: linear-gradient(
+        118deg,
+        transparent 18%,
+        rgba(255, 255, 255, 0.2) 38%,
+        rgba(255, 209, 102, 0.28) 46%,
+        rgba(244, 162, 140, 0.18) 54%,
+        transparent 68%
+      );
+      background-size: 220% 220%;
+      transition: background-position 0.35s ease;
+    }
+
+    /* 星圖連線發光效果 */
+    .constellation-line {
+      stroke: rgba(255, 209, 102, 0.38);
+      stroke-width: 1.5;
+      stroke-dasharray: 4 4;
+      transition: stroke 0.3s ease;
+    }
+
+    /* 自訂暮夜捲軸 */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d132b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 209, 102, 0.32);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 209, 102, 0.6);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-sunbeam-400 selection:text-twilight-950 relative">
+
+  <!-- ==================== 背景飄浮金色光翼粒子與星辰 Canvas ==================== -->
+  <canvas id="sky-particles-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+  <!-- ==================== 1. 頂部浮動星光導覽列 ==================== -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-twilight-950/65 backdrop-blur-xl border-b border-sunbeam-400/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- 遊戲菱形星徽與標題 -->
+        <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+          <div class="relative w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center">
+            <!-- 菱形雙層光翼星徽 SVG -->
+            <svg viewBox="0 0 44 44" class="w-full h-full drop-shadow-[0_0_12px_rgba(255,209,102,0.65)] group-hover:scale-105 transition-transform">
+              <polygon points="22,2 42,22 22,42 2,22" fill="rgba(255,209,102,0.14)" stroke="#ffd166" stroke-width="1.5" />
+              <polygon points="22,9 35,22 22,35 9,22" fill="rgba(255,229,153,0.22)" stroke="#ffe599" stroke-width="1" />
+              <circle cx="22" cy="22" r="3.5" fill="#fff2cc" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-serif text-lg sm:text-xl font-black tracking-wider text-white group-hover:text-sunbeam-300 transition-colors">
+                我們的生活區
+              </span>
+              <span class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-sunbeam-400/15 text-sunbeam-300 border border-sunbeam-400/30">
+                三區好生活
+              </span>
+            </div>
+            <p class="text-[11px] text-indigo-200/75 hidden sm:block tracking-wide">SKYLINE LIVING · 治癒系社區模擬</p>
+          </div>
+        </a>
+
+        <!-- 桌面版《光·遇》式導覽連結 -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-indigo-100/85">
+          <a href="#philosophy" class="hover:text-sunbeam-300 transition-colors">世界觀</a>
+          <a href="#realms" class="hover:text-sunbeam-300 transition-colors">六大領域</a>
+          <a href="#realms" onclick="focusHotspotHint()" class="hover:text-sunbeam-300 transition-colors">光點探索</a>
+          <a href="#constellation" class="hover:text-sunbeam-300 transition-colors">全設施圖鑑</a>
+          <a href="#rhythm" class="hover:text-sunbeam-300 transition-colors">一日節奏</a>
+          <a href="#pass" class="hover:text-sunbeam-300 transition-colors">社區通行證</a>
+        </nav>
+
+        <!-- 右側「聆聽雲端旋律」與通行證快捷按鈕 -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button
+            id="ambient-audio-btn"
+            onclick="toggleHarpMelody()"
+            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-bold cloud-glass text-sunbeam-200 hover:border-sunbeam-400/50 hover:bg-white/15 transition-all cursor-pointer"
+          >
+            <div class="flex items-end gap-[2.5px] h-3.5 w-3.5 justify-center">
+              <span id="w-bar-1" class="w-[2.5px] h-1 bg-sunbeam-400 rounded-full"></span>
+              <span id="w-bar-2" class="w-[2.5px] h-2 bg-sunbeam-400 rounded-full"></span>
+              <span id="w-bar-3" class="w-[2.5px] h-1.5 bg-sunbeam-400 rounded-full"></span>
+            </div>
+            <span id="audio-btn-text">聆聽雲端旋律</span>
+          </button>
+
+          <a
+            href="#pass"
+            class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-extrabold text-twilight-950 bg-gradient-to-r from-sunbeam-300 via-sunbeam-400 to-sunbeam-500 hover:brightness-105 shadow-[0_0_20px_rgba(255,209,102,0.4)] active:scale-95 transition-all"
+          >
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>領取通行證</span>
+          </a>
+
+          <!-- 手機版選單鈕 -->
+          <button
+            onclick="toggleMobileNav()"
+            aria-label="開啟導覽選單"
+            class="lg:hidden p-2 rounded-xl text-indigo-100 hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 手機版折疊導覽 -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-twilight-950/95 backdrop-blur-xl border-b border-sunbeam-400/20 px-4 pt-2 pb-5 space-y-1.5">
+      <a href="#philosophy" onclick="closeMobileNav()" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-indigo-100 hover:bg-white/10">世界觀 · 三界生活哲學</a>
+      <a href="#realms" onclick="closeMobileNav()" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-indigo-100 hover:bg-white/10">六大領域 & 光點探索</a>
+      <a href="#constellation" onclick="closeMobileNav()" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-indigo-100 hover:bg-white/10">三區星圖 & 全建設圖鑑 (28項)</a>
+      <a href="#rhythm" onclick="closeMobileNav()" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-indigo-100 hover:bg-white/10">光翼日常節奏模擬器</a>
+      <a href="#pass" onclick="closeMobileNav()" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-sunbeam-300 bg-sunbeam-400/15">光影社區居民通行證</a>
+    </div>
+  </header>
+
+  <!-- ==================== 2. 全螢幕電影感主視覺 Hero（六大場景輪播） ==================== -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-10 overflow-hidden">
+    <!-- 六張概念藝術背景圖層（平滑淡入淡出） -->
+    <div id="hero-slides-container" class="absolute inset-0 z-0">
+      <!-- 由 JS 注入 6 張完整背景圖 -->
+    </div>
+
+    <!-- 浮動雲霧視差裝飾層 -->
+    <div class="absolute inset-x-0 bottom-0 h-64 pointer-events-none z-[2] opacity-40 parallax-cloud-1 bg-gradient-to-t from-twilight-900 via-twilight-800/40 to-transparent"></div>
+    <div class="absolute -left-24 top-1/3 w-96 h-96 rounded-full bg-sunbeam-400/10 blur-[110px] pointer-events-none z-[2] parallax-cloud-2"></div>
+    <div class="absolute -right-24 top-1/4 w-96 h-96 rounded-full bg-dawn-400/15 blur-[120px] pointer-events-none z-[2] parallax-cloud-1"></div>
+
+    <!-- 詩意暮光與暖金遮罩，確保前景文字清晰易讀 -->
+    <div class="absolute inset-0 z-[1] bg-gradient-to-b from-twilight-950/75 via-twilight-900/40 to-twilight-900 pointer-events-none"></div>
+    <div class="absolute inset-0 z-[1] bg-radial from-transparent via-twilight-950/25 to-twilight-950/70 pointer-events-none"></div>
+
+    <!-- 中央詩意主視覺排版（致敬《光·遇》官網置中聖殿構圖） -->
+    <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-8 text-center flex flex-col items-center">
+      <!-- 發光菱形星徽圖騰 -->
+      <div class="mb-5 relative">
+        <div class="absolute inset-0 bg-sunbeam-400/30 blur-xl rounded-full"></div>
+        <svg viewBox="0 0 80 80" class="w-16 h-16 sm:w-20 sm:h-20 relative z-10 drop-shadow-[0_0_20px_rgba(255,209,102,0.85)]">
+          <polygon points="40,4 76,40 40,76 4,40" fill="rgba(255,209,102,0.1)" stroke="#ffd166" stroke-width="1.5" />
+          <polygon points="40,14 66,40 40,66 14,40" fill="rgba(255,229,153,0.18)" stroke="#ffe599" stroke-width="1.2" />
+          <path d="M40 22 L44 36 L58 40 L44 44 L40 58 L36 44 L22 40 L36 36 Z" fill="#fff2cc" />
+        </svg>
+      </div>
+
+      <!-- 細線星光副標 -->
+      <div class="inline-flex items-center gap-3 text-xs sm:text-sm font-bold tracking-[0.25em] text-sunbeam-300 uppercase mb-4">
+        <span class="w-8 sm:w-12 h-[1px] bg-gradient-to-r from-transparent to-sunbeam-400"></span>
+        <span>SKYLINE LIVING · TRI-DISTRICT</span>
+        <span class="w-8 sm:w-12 h-[1px] bg-gradient-to-l from-transparent to-sunbeam-400"></span>
+      </div>
+
+      <!-- 主標題 -->
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-wider leading-tight sky-title-glow mb-5">
+        我們的生活區
+      </h1>
+
+      <!-- 詩意副標語 -->
+      <p class="font-serif text-lg sm:text-2xl text-sunbeam-200/95 tracking-wide mb-4 max-w-2xl">
+        在雲海與星光之間，邂逅動靜皆宜的理想日常
+      </p>
+
+      <p class="text-sm sm:text-base text-indigo-100/85 leading-relaxed max-w-2xl mb-8">
+        橫跨<span class="text-sky-300 font-bold">男生生活區</span>、<span class="text-dawn-300 font-bold">女生生活區</span>與<span class="text-sunbeam-300 font-bold">中央共同區</span>的暖心社區。白天在賽道競速、商場逛街或手作閱讀，夜晚回到隔音極佳的簡約大公寓，享受最純粹的寧靜陪伴。
+      </p>
+
+      <!-- 金色膠囊行動按鈕組 -->
+      <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5">
+        <a
+          href="#realms"
+          class="inline-flex items-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-extrabold text-twilight-950 bg-gradient-to-r from-sunbeam-200 via-sunbeam-400 to-sunbeam-500 hover:brightness-105 shadow-[0_8px_32px_rgba(255,209,102,0.5)] active:scale-95 transition-all"
+        >
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span>踏入六大領域</span>
+        </a>
+        <a
+          href="#constellation"
+          class="inline-flex items-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-bold text-white cloud-glass hover:bg-white/15 hover:border-sunbeam-300/60 active:scale-95 transition-all"
+        >
+          <i data-lucide="sparkles" class="w-5 h-5 text-sunbeam-300"></i>
+          <span>探索場景光點</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 主視覺底部：六大領域場景縮圖選擇列 -->
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4">
+      <div class="cloud-glass rounded-3xl p-3.5 sm:p-4">
+        <div class="flex items-center justify-between px-1.5 mb-2.5">
+          <div class="flex items-center gap-2 text-xs font-bold text-sunbeam-300">
+            <span class="w-2 h-2 rotate-45 bg-sunbeam-400 inline-block"></span>
+            <span id="hero-caption-label">當前映照領域：男生熱鬧區（動感活力帶）</span>
+          </div>
+          <button
+            onclick="toggleHeroCarouselPlay()"
+            class="text-[11px] font-bold text-indigo-200/80 hover:text-sunbeam-300 flex items-center gap-1.5 cursor-pointer"
+          >
+            <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+            <span id="hero-play-status">自動巡禮中</span>
+          </button>
+        </div>
+
+        <div id="hero-thumbs-bar" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+          <!-- 由 JS 動態生成 6 張場景縮圖按鈕 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. 三界生活哲學（詩意世界觀三支柱） ==================== -->
+  <section id="philosophy" class="scroll-mt-20 relative z-20 py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 詩意標題 -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] text-sunbeam-300 uppercase mb-3">
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+          <span>PHILOSOPHY OF TRI-DISTRICT</span>
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white sky-title-glow mb-4">
+          三界生活哲學
+        </h2>
+        <p class="text-sm sm:text-base text-indigo-100/80 leading-relaxed">
+          每個人心中都住著兩種節奏——渴望奔馳歡笑的熱鬧靈魂，以及需要靜謐充電的溫柔角落。三座生活領域彼此相連，讓每一種日常都被細心安放。
+        </p>
+      </div>
+
+      <!-- 三支柱詩意卡片 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+        <!-- 支柱一：蒼穹男域 · 動靜雙環 -->
+        <article class="cloud-card rounded-3xl overflow-hidden flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img
+              src="03669f50.jpeg"
+              alt="蒼穹男域 · 動靜雙環"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-twilight-950 via-twilight-900/35 to-transparent"></div>
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-sky-500/80 text-white backdrop-blur-md border border-sky-300/30">
+              男生生活區 · 9 項建設
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-bold text-sunbeam-300 mb-2">
+                <span class="w-2 h-2 rotate-45 bg-sunbeam-400"></span>
+                <span>VELOCITY & SERENITY</span>
+              </div>
+              <h3 class="font-serif text-2xl font-extrabold text-white mb-3">
+                蒼穹男域 · 動靜雙環
+              </h3>
+              <p class="text-sm text-indigo-100/85 leading-relaxed">
+                外環<strong>男生熱鬧區</strong>匯聚汽機車賽道、大型綜合體育場與電競網咖，盡情釋放速度與競技熱情；內環<strong>男生安靜區</strong>則有戶外探險區、高級料理教室、大型健身房與透光大圖書館。兩區皆配有<strong>隔音簡約大公寓</strong>，隨時切換動靜節奏。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-sky-300">
+              <span>熱鬧競速 × 林間靜讀</span>
+              <a href="#realms" onclick="selectRealmById('boys-lively')" class="hover:text-sunbeam-300 flex items-center gap-1">
+                <span>前往探索</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 支柱二：緋紅女域 · 星光與手作 -->
+        <article class="cloud-card rounded-3xl overflow-hidden flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img
+              src="28058aab.jpeg"
+              alt="緋紅女域 · 星光與手作"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-twilight-950 via-twilight-900/35 to-transparent"></div>
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/80 text-white backdrop-blur-md border border-rose-300/30">
+              女生生活區 · 11 項建設
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-bold text-sunbeam-300 mb-2">
+                <span class="w-2 h-2 rotate-45 bg-sunbeam-400"></span>
+                <span>STARLIGHT & CRAFT</span>
+              </div>
+              <h3 class="font-serif text-2xl font-extrabold text-white mb-3">
+                緋紅女域 · 星光與手作
+              </h3>
+              <p class="text-sm text-indigo-100/85 leading-relaxed">
+                <strong>女生熱鬧區</strong>擁有大型購物商場、美妝商場、可跳舞聊天的戶外休閒廣場與室內交誼廳；<strong>女生安靜區</strong>在戶外探險、料理、健身與透光圖書館之外，更獨設<strong>室內手作教室</strong>。兩區同樣標配<strong>隔音簡約大公寓</strong>守護私密好眠。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-dawn-300">
+              <span>星光共舞 × 專屬手作工坊</span>
+              <a href="#realms" onclick="selectRealmById('girls-lively')" class="hover:text-sunbeam-300 flex items-center gap-1">
+                <span>前往探索</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 支柱三：中央共鳴區 · 跨界交流與家庭守護 -->
+        <article class="cloud-card rounded-3xl overflow-hidden flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img
+              src="cc9dfb89.jpeg"
+              alt="中央共鳴區 · 跨界交流與家庭守護"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-twilight-950 via-twilight-900/35 to-transparent"></div>
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/85 text-twilight-950 backdrop-blur-md border border-sunbeam-200/40">
+              中央共同區 · 全齡共融
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-bold text-sunbeam-300 mb-2">
+                <span class="w-2 h-2 rotate-45 bg-sunbeam-400"></span>
+                <span>RESONANCE & FAMILY</span>
+              </div>
+              <h3 class="font-serif text-2xl font-extrabold text-white mb-3">
+                中央共鳴區 · 跨界交流與家庭守護
+              </h3>
+              <p class="text-sm text-indigo-100/85 leading-relaxed">
+                <strong>男女綜合交流區</strong>的「全功能交流中心」完整集合男女區所有 12 項建設，讓所有人自由跨區約會同樂；<strong>家庭與寵物區</strong>則專為育兒與毛孩家庭打造兒童遊樂園、托兒所、親子館、寵物公園、獸醫院、寵物餐廳與長照看護中心。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-sunbeam-300">
+              <span>12項全功能交流 × 親子毛孩樂園</span>
+              <a href="#realms" onclick="selectRealmById('central-exchange')" class="hover:text-white flex items-center gap-1">
+                <span>前往探索</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. 六大領域場景導覽 & 光點互動（Sky Realms Showcase） ==================== -->
+  <section id="realms" class="scroll-mt-20 relative z-20 py-20 sm:py-28 border-t border-sunbeam-400/15 bg-twilight-950/35">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 區塊標題 -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] text-sunbeam-300 uppercase mb-3">
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+          <span>REALMS & WINGED-LIGHT HOTSPOTS</span>
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white sky-title-glow mb-3">
+          六大領域場景導覽
+        </h2>
+        <p class="text-sm sm:text-base text-indigo-100/80">
+          切換下方六大生活領域，點擊畫面上閃爍的<span class="text-sunbeam-300 font-bold">「金色光翼菱形座標」</span>，喚醒建築記憶並排入你的每日行程。
+        </p>
+      </div>
+
+      <!-- 六大領域分頁切換列 -->
+      <div id="realm-tabs-bar" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
+        <!-- 由 JS 動態渲染 6 個領域分頁按鈕 -->
+      </div>
+
+      <!-- 華麗金邊畫框舞台 + 光翼互動座標 -->
+      <div class="cloud-glass-deep rounded-3xl p-4 sm:p-6 lg:p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+
+          <!-- 左側 8 欄：16:9 概念藝術畫作與脈衝光翼光點 -->
+          <div class="lg:col-span-8">
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-sunbeam-400/45 shadow-[0_16px_50px_rgba(0,0,0,0.7),0_0_30px_rgba(255,209,102,0.12)] bg-twilight-950">
+              <img
+                id="realm-artwork-img"
+                src="03669f50.jpeg"
+                alt="男生熱鬧區概念場景"
+                class="w-full h-full object-cover transition-all duration-700"
+              />
+              <!-- 暮色柔光邊緣漸層 -->
+              <div class="absolute inset-0 bg-gradient-to-t from-twilight-950/75 via-transparent to-twilight-950/20 pointer-events-none"></div>
+
+              <!-- 脈衝光翼座標圖層 -->
+              <div id="realm-pins-layer" class="absolute inset-0 z-10">
+                <!-- 由 JS 動態生成發光菱形光點 -->
+              </div>
+
+              <!-- 右上角全螢幕鑑賞按鈕 -->
+              <button
+                onclick="openArtworkLightbox()"
+                class="absolute top-3.5 right-3.5 z-20 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold text-white bg-twilight-950/80 hover:bg-sunbeam-400 hover:text-twilight-950 backdrop-blur-md border border-sunbeam-400/40 transition-all cursor-pointer shadow-lg"
+              >
+                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                <span>全螢幕鑑賞畫作</span>
+              </button>
+
+              <!-- 左下角領域詩意銘牌 -->
+              <div class="absolute bottom-3.5 left-4 z-10 pointer-events-none">
+                <span id="realm-badge-overlay" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-twilight-950/80 text-sunbeam-300 border border-sunbeam-400/35 backdrop-blur-md">
+                  <span class="w-1.5 h-1.5 rotate-45 bg-sunbeam-400"></span>
+                  <span>男生生活區 · 動感活力帶</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 底部光點快捷切換膠囊列（方便行動裝置單手點選） -->
+            <div class="mt-4">
+              <div class="text-xs font-bold text-indigo-200/75 mb-2 flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-sunbeam-400"></i>
+                <span>本領域光翼座標清單（點擊查看詳情）：</span>
+              </div>
+              <div id="realm-pin-pills" class="flex flex-wrap gap-2">
+                <!-- 由 JS 動態生成 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 右側 4 欄：領域介紹與選中光翼詳情浮動卡 -->
+          <div class="lg:col-span-4 flex flex-col justify-between space-y-5">
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span id="realm-parent-text" class="font-bold text-sunbeam-300">男生生活區</span>
+                <span id="realm-count-text" class="text-indigo-200/70 font-semibold">4 項主要建設</span>
+              </div>
+              <h3 id="realm-title-text" class="font-serif text-2xl sm:text-3xl font-black text-white mb-2.5">
+                男生熱鬧區
+              </h3>
+              <p id="realm-desc-text" class="text-sm text-indigo-100/85 leading-relaxed">
+                以速度感與競技熱情為核心的活力街區，擁有貫穿空中的汽機車賽道、大型綜合體育場與電競網咖，玩累了隨時回到隔音極佳的簡約大公寓徹底放鬆。
+              </p>
+            </div>
+
+            <!-- 選中光點詳情卡片 -->
+            <div class="rounded-2xl p-5 bg-gradient-to-br from-sunbeam-400/18 via-white/10 to-dawn-400/12 border border-sunbeam-400/45 shadow-[0_0_28px_rgba(255,209,102,0.16)]">
+              <div class="flex items-center gap-2 text-xs font-bold text-sunbeam-300 mb-2">
+                <span class="w-2 h-2 rotate-45 bg-sunbeam-400 animate-ping"></span>
+                <span>光翼座標記憶</span>
+              </div>
+              <h4 id="pin-detail-title" class="font-serif text-xl font-extrabold text-white mb-2">
+                汽機車賽道
+              </h4>
+              <p id="pin-detail-desc" class="text-sm text-indigo-100/90 leading-relaxed mb-4">
+                可騎機車、重機與開汽車競速兜風的專用道路，享受風馳電掣的快感與車友聚會樂趣。
+              </p>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <button
+                  onclick="addSelectedPinToRhythm()"
+                  class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-extrabold text-twilight-950 bg-gradient-to-r from-sunbeam-300 to-sunbeam-500 hover:brightness-105 active:scale-95 transition-all cursor-pointer shadow-md"
+                >
+                  <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i>
+                  <span>+ 加入一日生活排程</span>
+                </button>
+                <button
+                  onclick="filterConstellationByCurrentRealm()"
+                  class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all cursor-pointer"
+                >
+                  <span>查看本區全部設施</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. 三區星圖與全建設圖鑑（28 項設施完整收錄） ==================== -->
+  <section id="constellation" class="scroll-mt-20 relative z-20 py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 標題 -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] text-sunbeam-300 uppercase mb-3">
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+          <span>CONSTELLATION MAP & 28 FACILITIES</span>
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white sky-title-glow mb-3">
+          三區星圖與全建設圖鑑
+        </h2>
+        <p class="text-sm sm:text-base text-indigo-100/80">
+          點選星圖上的發光星點，或透過下方分區篩選與搜尋，瀏覽三大生活區全部 <strong class="text-sunbeam-300">28 項建設</strong>。
+        </p>
+      </div>
+
+      <!-- 互動式三區星座連線星圖（左：男生生活區 / 中：中央共同區 / 右：女生生活區） -->
+      <div class="cloud-glass-deep rounded-3xl p-5 sm:p-7 mb-10 relative overflow-hidden">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <span class="text-xs font-bold text-sunbeam-300 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>點擊星圖節點，立即篩選對應生活區建設：</span>
+          </span>
+          <button
+            onclick="resetDirectoryFilters()"
+            class="text-xs font-bold text-indigo-200 hover:text-sunbeam-300 underline cursor-pointer"
+          >
+            顯示全星圖（全部 28 項）
+          </button>
+        </div>
+
+        <div class="relative w-full">
+          <svg viewBox="0 0 900 220" class="w-full h-auto max-h-60 select-none overflow-visible">
+            <!-- 星圖連線 -->
+            <line x1="150" y1="60" x2="150" y2="160" class="constellation-line" />
+            <line x1="150" y1="60" x2="450" y2="70" class="constellation-line" />
+            <line x1="150" y1="160" x2="450" y2="155" class="constellation-line" />
+            <line x1="450" y1="70" x2="450" y2="155" class="constellation-line" />
+            <line x1="450" y1="70" x2="750" y2="60" class="constellation-line" />
+            <line x1="450" y1="155" x2="750" y2="160" class="constellation-line" />
+            <line x1="750" y1="60" x2="750" y2="160" class="constellation-line" />
+
+            <!-- 左側星群標題：男生生活區 -->
+            <text x="150" y="24" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="800">左翼星群 · 男生生活區 (9)</text>
+
+            <!-- 節點 1：男生熱鬧區 -->
+            <g class="cursor-pointer group" onclick="selectConstellationNode('男生生活區', '男生熱鬧區')">
+              <circle cx="150" cy="60" r="18" fill="rgba(56, 189, 248, 0.18)" stroke="#7dd3fc" stroke-width="1.5" />
+              <polygon points="150,51 159,60 150,69 141,60" fill="#ffd166" />
+              <text x="150" y="92" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">男生熱鬧區 (4)</text>
+            </g>
+
+            <!-- 節點 2：男生安靜區 -->
+            <g class="cursor-pointer group" onclick="selectConstellationNode('男生生活區', '男生安靜區')">
+              <circle cx="150" cy="160" r="18" fill="rgba(45, 212, 191, 0.18)" stroke="#5eead4" stroke-width="1.5" />
+              <polygon points="150,151 159,160 150,169 141,160" fill="#ffd166" />
+              <text x="150" y="194" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">男生安靜區 (5)</text>
+            </g>
+
+            <!-- 中央星群標題：中央共同區 -->
+            <text x="450" y="24" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="800">核心聖殿 · 中央共同區 (8)</text>
+
+            <!-- 節點 3：男女綜合交流區 -->
+            <g class="cursor-pointer group" onclick="selectConstellationNode('中央共同區', '男女綜合交流區')">
+              <circle cx="450" cy="70" r="22" fill="rgba(255, 209, 102, 0.24)" stroke="#ffd166" stroke-width="2" />
+              <polygon points="450,58 462,70 450,82 438,70" fill="#fff2cc" />
+              <text x="450" y="106" text-anchor="middle" fill="#ffe599" font-size="13" font-weight="800">男女綜合交流區 (含全12項)</text>
+            </g>
+
+            <!-- 節點 4：家庭與寵物區 -->
+            <g class="cursor-pointer group" onclick="selectConstellationNode('中央共同區', '家庭與寵物區')">
+              <circle cx="450" cy="155" r="19" fill="rgba(251, 191, 36, 0.2)" stroke="#fcd34d" stroke-width="1.5" />
+              <polygon points="450,145 460,155 450,165 440,155" fill="#ffd166" />
+              <text x="450" y="190" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">家庭與寵物區 (7)</text>
+            </g>
+
+            <!-- 右側星群標題：女生生活區 -->
+            <text x="750" y="24" text-anchor="middle" fill="#fda4af" font-size="13" font-weight="800">右翼星群 · 女生生活區 (11)</text>
+
+            <!-- 節點 5：女生熱鬧區 -->
+            <g class="cursor-pointer group" onclick="selectConstellationNode('女生生活區', '女生熱鬧區')">
+              <circle cx="750" cy="60" r="18" fill="rgba(251, 113, 133, 0.18)" stroke="#fda4af" stroke-width="1.5" />
+              <polygon points="750,51 759,60 750,69 741,60" fill="#ffd166" />
+              <text x="750" y="92" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">女生熱鬧區 (5)</text>
+            </g>
+
+            <!-- 節點 6：女生安靜區 -->
+            <g class="cursor-pointer group" onclick="selectConstellationNode('女生生活區', '女生安靜區')">
+              <circle cx="750" cy="160" r="18" fill="rgba(244, 162, 140, 0.22)" stroke="#fad2c5" stroke-width="1.5" />
+              <polygon points="750,151 759,160 750,169 741,160" fill="#ffd166" />
+              <text x="750" y="194" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">女生安靜區 (6 · 含專屬手作)</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 搜尋與分區篩選控制列 -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+        <!-- 主分區膠囊按鈕 -->
+        <div class="flex flex-wrap items-center gap-2" id="dir-main-tabs">
+          <button
+            data-main="all"
+            onclick="setDirMainFilter('all')"
+            class="dir-main-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-extrabold bg-sunbeam-400 text-twilight-950 shadow-[0_0_18px_rgba(255,209,102,0.4)] cursor-pointer transition-all"
+          >
+            全部 28 項建設
+          </button>
+          <button
+            data-main="男生生活區"
+            onclick="setDirMainFilter('男生生活區')"
+            class="dir-main-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-sky-200 hover:border-sky-300 cursor-pointer transition-all"
+          >
+            男生生活區 (9)
+          </button>
+          <button
+            data-main="女生生活區"
+            onclick="setDirMainFilter('女生生活區')"
+            class="dir-main-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-rose-200 hover:border-rose-300 cursor-pointer transition-all"
+          >
+            女生生活區 (11)
+          </button>
+          <button
+            data-main="中央共同區"
+            onclick="setDirMainFilter('中央共同區')"
+            class="dir-main-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-sunbeam-200 hover:border-sunbeam-300 cursor-pointer transition-all"
+          >
+            中央共同區 (8)
+          </button>
+        </div>
+
+        <!-- 關鍵字搜尋框 -->
+        <div class="relative w-full md:w-80">
+          <i data-lucide="search" class="w-4 h-4 text-sunbeam-300 absolute left-4 top-1/2 -translate-y-1/2"></i>
+          <input
+            id="dir-search-input"
+            type="text"
+            oninput="handleDirSearch(this.value)"
+            placeholder="搜尋設施（如：公寓、手作、寵物、賽道...）"
+            class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-sunbeam-400/30 text-sm text-white placeholder:text-indigo-200/50 focus:outline-none focus:ring-2 focus:ring-sunbeam-400/60 backdrop-blur-md"
+          />
+        </div>
+      </div>
+
+      <!-- 子分區篩選膠囊列 -->
+      <div id="dir-sub-tabs" class="flex flex-wrap items-center gap-2 mb-6 pb-5 border-b border-white/10">
+        <!-- 由 JS 動態生成 -->
+      </div>
+
+      <!-- 當前篩選結果狀態 -->
+      <div class="flex items-center justify-between text-xs sm:text-sm text-indigo-200/80 mb-5">
+        <span id="dir-status-label">正在顯示：全部 28 項建設</span>
+        <button
+          id="dir-reset-btn"
+          onclick="resetDirectoryFilters()"
+          class="hidden text-sunbeam-300 font-bold hover:underline cursor-pointer"
+        >
+          清除篩選條件
+        </button>
+      </div>
+
+      <!-- 28 張設施卡片網格（每張皆附帶對應領域場景示意圖縮圖） -->
+      <div id="dir-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 由 JS 動態生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. 光翼日常節奏模擬器（Winged-Light Daily Rhythm Simulator） ==================== -->
+  <section id="rhythm" class="scroll-mt-20 relative z-20 py-20 sm:py-28 border-t border-sunbeam-400/15 bg-twilight-950/45">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 標題 -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] text-sunbeam-300 uppercase mb-3">
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+          <span>WINGED-LIGHT DAILY RHYTHM</span>
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white sky-title-glow mb-3">
+          光翼日常節奏模擬器
+        </h2>
+        <p class="text-sm sm:text-base text-indigo-100/80">
+          自由安排晨曦、午後與星夜的三段行程，或一鍵套用四種理想生活提案，觀察你的斗篷光翼能量變化！
+        </p>
+      </div>
+
+      <!-- 四種預設生活提案快速套用按鈕 -->
+      <div class="mb-8">
+        <p class="text-xs font-bold text-indigo-200/75 text-center mb-3">一鍵套用四種精選日常提案：</p>
+        <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+          <button
+            onclick="applyLifestylePreset('speed-reading')"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-sky-200 hover:border-sky-300 hover:bg-sky-500/20 active:scale-95 transition-all cursor-pointer"
+          >
+            <i data-lucide="bike" class="w-4 h-4 text-sky-400"></i>
+            <span>熱血競速與靜謐閱讀</span>
+          </button>
+          <button
+            onclick="applyLifestylePreset('shop-craft')"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-rose-200 hover:border-rose-300 hover:bg-rose-500/20 active:scale-95 transition-all cursor-pointer"
+          >
+            <i data-lucide="palette" class="w-4 h-4 text-rose-400"></i>
+            <span>閨蜜逛街與手作時光</span>
+          </button>
+          <button
+            onclick="applyLifestylePreset('family-pet')"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-amber-200 hover:border-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all cursor-pointer"
+          >
+            <i data-lucide="paw-print" class="w-4 h-4 text-amber-400"></i>
+            <span>中央親子與毛孩週末</span>
+          </button>
+          <button
+            onclick="applyLifestylePreset('cross-date')"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-emerald-200 hover:border-emerald-300 hover:bg-emerald-500/20 active:scale-95 transition-all cursor-pointer"
+          >
+            <i data-lucide="heart" class="w-4 h-4 text-emerald-400"></i>
+            <span>跨區全功能約會日</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 模擬器主視窗：左側三時段排程 + 右側斗篷光翼能量儀表 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+
+        <!-- 左側 7 欄：晨曦 / 午後 / 星夜 行程排程卡片 -->
+        <div class="lg:col-span-7 cloud-glass-deep rounded-3xl p-5 sm:p-7 space-y-4">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-serif text-xl font-extrabold text-white flex items-center gap-2">
+              <i data-lucide="sun-moon" class="w-5 h-5 text-sunbeam-400"></i>
+              <span>今日三時段行程表</span>
+            </h3>
+            <button
+              onclick="resetRhythmSlots()"
+              class="text-xs font-bold text-indigo-300 hover:text-dawn-400 transition-colors cursor-pointer"
+            >
+              清空行程
+            </button>
+          </div>
+
+          <!-- 上午時段 -->
+          <div class="bg-white/5 rounded-2xl p-4 border border-white/10 flex flex-col sm:flex-row gap-4 items-center">
+            <img
+              id="slot-img-morning"
+              src="03669f50.jpeg"
+              alt="上午場景預覽"
+              class="w-full sm:w-28 h-24 sm:h-20 rounded-xl object-cover border border-sunbeam-400/30 shrink-0"
+            />
+            <div class="flex-1 w-full">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-sm font-extrabold text-amber-300 flex items-center gap-1.5">
+                  <i data-lucide="sunrise" class="w-4 h-4"></i> 上午 · 晨曦時光
+                </span>
+                <span id="slot-zone-morning" class="text-[11px] font-bold text-indigo-200/75">男生熱鬧區</span>
+              </div>
+              <div class="flex gap-2">
+                <select
+                  id="rhythm-select-morning"
+                  onchange="onRhythmSelectChange('morning', this.value)"
+                  aria-label="選擇上午設施"
+                  class="flex-1 rounded-xl border border-sunbeam-400/30 bg-twilight-900 text-white px-3 py-2 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-sunbeam-400/50"
+                ></select>
+                <button
+                  onclick="clearRhythmSlot('morning')"
+                  class="px-3 py-2 rounded-xl text-xs font-bold text-indigo-200 hover:text-dawn-300 bg-white/5 hover:bg-white/10 border border-white/15 cursor-pointer"
+                >
+                  清除
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 下午時段 -->
+          <div class="bg-white/5 rounded-2xl p-4 border border-white/10 flex flex-col sm:flex-row gap-4 items-center">
+            <img
+              id="slot-img-afternoon"
+              src="3047c9a1.jpeg"
+              alt="下午場景預覽"
+              class="w-full sm:w-28 h-24 sm:h-20 rounded-xl object-cover border border-sunbeam-400/30 shrink-0"
+            />
+            <div class="flex-1 w-full">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-sm font-extrabold text-sky-300 flex items-center gap-1.5">
+                  <i data-lucide="sun" class="w-4 h-4"></i> 下午 · 暖陽午後
+                </span>
+                <span id="slot-zone-afternoon" class="text-[11px] font-bold text-indigo-200/75">男生安靜區</span>
+              </div>
+              <div class="flex gap-2">
+                <select
+                  id="rhythm-select-afternoon"
+                  onchange="onRhythmSelectChange('afternoon', this.value)"
+                  aria-label="選擇下午設施"
+                  class="flex-1 rounded-xl border border-sunbeam-400/30 bg-twilight-900 text-white px-3 py-2 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-sunbeam-400/50"
+                ></select>
+                <button
+                  onclick="clearRhythmSlot('afternoon')"
+                  class="px-3 py-2 rounded-xl text-xs font-bold text-indigo-200 hover:text-dawn-300 bg-white/5 hover:bg-white/10 border border-white/15 cursor-pointer"
+                >
+                  清除
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 晚上時段 -->
+          <div class="bg-white/5 rounded-2xl p-4 border border-white/10 flex flex-col sm:flex-row gap-4 items-center">
+            <img
+              id="slot-img-evening"
+              src="3047c9a1.jpeg"
+              alt="晚上場景預覽"
+              class="w-full sm:w-28 h-24 sm:h-20 rounded-xl object-cover border border-sunbeam-400/30 shrink-0"
+            />
+            <div class="flex-1 w-full">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-sm font-extrabold text-indigo-300 flex items-center gap-1.5">
+                  <i data-lucide="moon-star" class="w-4 h-4"></i> 晚上 · 星夜歸宿
+                </span>
+                <span id="slot-zone-evening" class="text-[11px] font-bold text-indigo-200/75">男生安靜區</span>
+              </div>
+              <div class="flex gap-2">
+                <select
+                  id="rhythm-select-evening"
+                  onchange="onRhythmSelectChange('evening', this.value)"
+                  aria-label="選擇晚上設施"
+                  class="flex-1 rounded-xl border border-sunbeam-400/30 bg-twilight-900 text-white px-3 py-2 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-sunbeam-400/50"
+                ></select>
+                <button
+                  onclick="clearRhythmSlot('evening')"
+                  class="px-3 py-2 rounded-xl text-xs font-bold text-indigo-200 hover:text-dawn-300 bg-white/5 hover:bg-white/10 border border-white/15 cursor-pointer"
+                >
+                  清除
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側 5 欄：斗篷光翼能量計量表（Vitality / Resonance / Serenity） -->
+        <div class="lg:col-span-5 cloud-glass-deep rounded-3xl p-6 sm:p-7 border border-sunbeam-400/40">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <span class="text-[11px] font-bold tracking-[0.2em] text-sunbeam-300 uppercase">CAPE ENERGY GAUGES</span>
+              <h3 class="font-serif text-2xl font-extrabold text-white mt-0.5">斗篷光翼能量狀態</h3>
+            </div>
+            <div id="serenity-crown-badge" class="hidden items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-sunbeam-200 to-sunbeam-500 text-twilight-950 shadow-[0_0_20px_rgba(255,209,102,0.65)]">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>100% 靜默好眠</span>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <!-- 1. 活力指數 (Vitality) -->
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="flex items-center gap-2 text-amber-300">
+                  <i data-lucide="flame" class="w-4 h-4"></i> 活力指數 (Vitality)
+                </span>
+                <span id="gauge-vitality-val" class="text-amber-300 font-extrabold">0%</span>
+              </div>
+              <div class="w-full h-3.5 bg-white/10 rounded-full overflow-hidden p-[2px] border border-white/10">
+                <div id="gauge-vitality-bar" class="h-full bg-gradient-to-r from-amber-500 via-sunbeam-400 to-sunbeam-200 rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(255,209,102,0.7)]" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- 2. 社交共鳴 (Resonance) -->
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="flex items-center gap-2 text-dawn-300">
+                  <i data-lucide="users" class="w-4 h-4"></i> 社交共鳴 (Resonance)
+                </span>
+                <span id="gauge-resonance-val" class="text-dawn-300 font-extrabold">0%</span>
+              </div>
+              <div class="w-full h-3.5 bg-white/10 rounded-full overflow-hidden p-[2px] border border-white/10">
+                <div id="gauge-resonance-bar" class="h-full bg-gradient-to-r from-rose-500 via-dawn-400 to-dawn-300 rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(244,162,140,0.7)]" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- 3. 隔音休憩品質 (Serenity) -->
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="flex items-center gap-2 text-sky-300">
+                  <i data-lucide="volume-x" class="w-4 h-4"></i> 隔音休憩品質 (Serenity)
+                </span>
+                <span id="gauge-serenity-val" class="text-sky-300 font-extrabold">0%</span>
+              </div>
+              <div class="w-full h-3.5 bg-white/10 rounded-full overflow-hidden p-[2px] border border-white/10">
+                <div id="gauge-serenity-bar" class="h-full bg-gradient-to-r from-sky-500 via-teal-300 to-sunbeam-200 rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(125,211,252,0.7)]" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 隔音簡約大公寓專屬提示框 -->
+          <div id="serenity-tip-box" class="mt-7 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs leading-relaxed text-indigo-100/85 transition-all">
+            ✨ <strong>光翼提示：</strong>將晚上時段安排回到任一分區的<strong>「隔音簡約大公寓」</strong>，隔音休憩品質（Serenity）將立即充能至 <strong>100% 滿格</strong>！
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. 光影社區居民通行證生成器（Sky-Style Resident Constellation Pass） ==================== -->
+  <section id="pass" class="scroll-mt-20 relative z-20 py-20 sm:py-28 border-t border-sunbeam-400/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] text-sunbeam-300 uppercase mb-3">
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+          <span>RESIDENT CONSTELLATION PASS</span>
+          <span class="w-6 h-[1px] bg-sunbeam-400/60"></span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white sky-title-glow mb-3">
+          光影社區居民通行證
+        </h2>
+        <p class="text-sm sm:text-base text-indigo-100/80">
+          輸入你的旅人暱稱、挑選喜愛的領域場景底圖與斗篷光翼徽章色彩，鑄造專屬你的光影社區通行證。
+        </p>
+      </div>
+
+      <div class="cloud-glass-deep rounded-3xl p-6 sm:p-8 lg:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          <!-- 左側 6 欄：通行證自訂表單 -->
+          <div class="lg:col-span-6 space-y-5">
+            <!-- 1. 居民暱稱 -->
+            <div>
+              <label for="resident-name-input" class="block text-xs font-bold text-sunbeam-300 mb-2">
+                1. 輸入居民暱稱
+              </label>
+              <input
+                id="resident-name-input"
+                type="text"
+                maxlength="14"
+                oninput="refreshResidentPass()"
+                placeholder="例如：雲端旅人（預設顯示「星光新居民」）"
+                class="w-full px-4 py-3 rounded-2xl bg-white/10 border border-sunbeam-400/30 text-sm font-bold text-white placeholder:text-indigo-200/45 focus:outline-none focus:ring-2 focus:ring-sunbeam-400/60"
+              />
+            </div>
+
+            <!-- 2. 選擇斗篷光翼徽章色彩 -->
+            <div>
+              <span class="block text-xs font-bold text-sunbeam-300 mb-2">
+                2. 選擇專屬斗篷光翼徽章色彩
+              </span>
+              <div id="cape-color-options" class="flex flex-wrap gap-2.5">
+                <!-- 由 JS 動態生成 5 種斗篷徽章色彩 -->
+              </div>
+            </div>
+
+            <!-- 3. 選擇六大領域場景底圖 -->
+            <div>
+              <span class="block text-xs font-bold text-sunbeam-300 mb-2">
+                3. 選擇居住領域與通行證場景底圖（完整收錄 6 張領域示意圖）
+              </span>
+              <div id="pass-backdrop-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                <!-- 由 JS 動態生成 6 張場景示意圖選擇鈕 -->
+              </div>
+            </div>
+
+            <!-- 鑄造編號按鈕 -->
+            <div class="pt-1">
+              <button
+                onclick="mintResidentPass()"
+                class="w-full py-4 rounded-full text-sm sm:text-base font-extrabold text-twilight-950 bg-gradient-to-r from-sunbeam-200 via-sunbeam-400 to-sunbeam-500 hover:brightness-105 shadow-[0_8px_32px_rgba(255,209,102,0.45)] active:scale-98 transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                <span>鑄造專屬通行證編號</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 右側 6 欄：3D 光影折射居民通行證卡片 -->
+          <div class="lg:col-span-6 flex flex-col items-center">
+            <div
+              id="resident-pass-card"
+              onmousemove="tiltPassCard(event)"
+              onmouseleave="resetPassCardTilt()"
+              class="w-full max-w-md aspect-[1.58/1] rounded-3xl relative overflow-hidden border-2 border-sunbeam-300/65 shadow-[0_24px_65px_rgba(0,0,0,0.75),0_0_40px_rgba(255,209,102,0.25)] transition-transform duration-200 select-none"
+            >
+              <!-- 通行證場景底圖 -->
+              <img
+                id="pass-card-artwork"
+                src="03669f50.jpeg"
+                alt="通行證領域場景"
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+              />
+              <!-- 暮光與星輝遮罩 -->
+              <div class="absolute inset-0 bg-gradient-to-br from-twilight-950/85 via-twilight-900/55 to-twilight-950/88"></div>
+              <!-- 全息折射光層 -->
+              <div id="pass-sheen-layer" class="absolute inset-0 pass-holo-sheen pointer-events-none"></div>
+
+              <!-- 卡片內容 -->
+              <div class="relative z-10 h-full p-5 sm:p-6 flex flex-col justify-between">
+                <!-- 頂部星徽與標題 -->
+                <div class="flex items-start justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold tracking-[0.22em] text-sunbeam-300 uppercase">
+                      SKYLINE LIVING · RESIDENT PASS
+                    </div>
+                    <h3 class="font-serif text-lg sm:text-xl font-black text-white tracking-wide mt-0.5">
+                      光影社區居民通行證
+                    </h3>
+                  </div>
+
+                  <!-- 斗篷光翼菱形徽章 -->
+                  <div
+                    id="pass-cape-emblem"
+                    class="w-11 h-11 rounded-2xl bg-sunbeam-400/20 border border-sunbeam-300/50 backdrop-blur-md flex items-center justify-center shadow-lg"
+                  >
+                    <svg viewBox="0 0 36 36" class="w-6 h-6">
+                      <polygon points="18,3 33,18 18,33 3,18" fill="none" stroke="currentColor" stroke-width="2" />
+                      <path d="M18 9 L20.5 15.5 L27 18 L20.5 20.5 L18 27 L15.5 20.5 L9 18 L15.5 15.5 Z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- 中間居民資訊 -->
+                <div class="my-auto">
+                  <div class="text-[11px] font-semibold text-indigo-200/75">登記居民</div>
+                  <div id="pass-card-nickname" class="font-serif text-2xl sm:text-3xl font-black text-white tracking-wide sky-title-glow truncate">
+                    星光新居民
+                  </div>
+                  <div class="mt-2.5 flex flex-wrap items-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-sunbeam-400/20 text-sunbeam-200 border border-sunbeam-300/45 backdrop-blur-md">
+                      <span class="w-1.5 h-1.5 rotate-45 bg-sunbeam-300"></span>
+                      <span id="pass-card-realm">男生熱鬧區</span>
+                    </span>
+                    <span id="pass-card-cape-label" class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-white border border-white/20">
+                      晨曦金光翼
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 底部通行證編號 -->
+                <div class="pt-3 border-t border-white/15 flex items-end justify-between">
+                  <div>
+                    <div class="text-[10px] text-indigo-200/70">星光居民編號</div>
+                    <div id="pass-card-id" class="text-xs sm:text-sm font-mono font-extrabold text-sunbeam-300 tracking-widest">
+                      SKY-2026-0818
+                    </div>
+                  </div>
+                  <span id="pass-card-status" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-400/20 text-emerald-300 border border-emerald-400/35">
+                    通行證已點亮
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 複製編號按鈕 -->
+            <div class="mt-4 flex items-center gap-3">
+              <button
+                onclick="copyPassIdToClipboard()"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white cloud-glass hover:bg-white/15 hover:border-sunbeam-400/50 active:scale-95 transition-all cursor-pointer"
+              >
+                <i data-lucide="copy" class="w-4 h-4 text-sunbeam-300"></i>
+                <span>一鍵複製居民編號</span>
+              </button>
+              <span class="text-xs text-indigo-200/65 hidden sm:inline">移動游標可鑑賞星光折射</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 頁尾 Footer ==================== -->
+  <footer class="relative z-20 bg-twilight-950/90 border-t border-sunbeam-400/15 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <svg viewBox="0 0 36 36" class="w-8 h-8 text-sunbeam-400">
+          <polygon points="18,2 34,18 18,34 2,18" fill="rgba(255,209,102,0.15)" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="18" cy="18" r="3" fill="#fff2cc" />
+        </svg>
+        <div>
+          <span class="font-serif text-white font-extrabold text-base tracking-wide">《我們的生活區》三區好生活</span>
+          <p class="text-[11px] text-indigo-200/65">在雲海與星光之間，邂逅動靜皆宜的理想日常</p>
+        </div>
+      </div>
+      <p class="text-xs text-indigo-200/55 text-center sm:text-right">
+        © 2026 我們的生活區開發團隊 · 官方世界觀與六大領域概念展示網站
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== 全螢幕概念畫作鑑賞燈箱 Lightbox ==================== -->
+  <div
+    id="artwork-lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-twilight-950/92 backdrop-blur-xl"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="relative w-full max-w-6xl cloud-glass-deep rounded-3xl overflow-hidden shadow-2xl border border-sunbeam-400/45">
+      <div class="flex items-center justify-between px-5 py-3.5 bg-twilight-950/85 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <span id="lb-zone-tag" class="px-3 py-0.5 rounded-full text-xs font-bold bg-sunbeam-400/20 text-sunbeam-300 border border-sunbeam-400/35">
+            男生生活區
+          </span>
+          <h3 id="lb-title" class="font-serif text-base sm:text-lg font-extrabold text-white">男生熱鬧區</h3>
+        </div>
+        <button
+          onclick="closeArtworkLightbox()"
+          aria-label="關閉全螢幕鑑賞"
+          class="p-2 rounded-full text-indigo-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+        >
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="relative aspect-video bg-black">
+        <img
+          id="lb-image"
+          src="03669f50.jpeg"
+          alt="全螢幕概念場景畫作"
+          class="w-full h-full object-contain"
+        />
+        <button
+          onclick="stepArtworkLightbox(-1)"
+          aria-label="上一張領域"
+          class="absolute left-3.5 top-1/2 -translate-y-1/2 p-3 rounded-full bg-twilight-950/80 hover:bg-sunbeam-400 text-white hover:text-twilight-950 border border-white/20 transition-all cursor-pointer"
+        >
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button
+          onclick="stepArtworkLightbox(1)"
+          aria-label="下一張領域"
+          class="absolute right-3.5 top-1/2 -translate-y-1/2 p-3 rounded-full bg-twilight-950/80 hover:bg-sunbeam-400 text-white hover:text-twilight-950 border border-white/20 transition-all cursor-pointer"
+        >
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="px-6 py-4 bg-twilight-950/85 text-xs sm:text-sm text-indigo-100/85">
+        <p id="lb-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 星光浮動訊息通知 Toast（無 alert()） ==================== -->
+  <div
+    id="sky-toast"
+    class="fixed bottom-5 right-5 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300"
+  >
+    <div class="cloud-glass-deep px-4 py-3 rounded-full border border-sunbeam-400/55 shadow-2xl flex items-center gap-2.5 text-xs sm:text-sm font-bold text-white max-w-xs sm:max-w-md">
+      <span class="w-2.5 h-2.5 rotate-45 bg-sunbeam-400 shrink-0"></span>
+      <span id="sky-toast-text">已完成排程</span>
+    </div>
+  </div>
+
+  <!-- ==================== JavaScript 互動引擎 ==================== -->
+  <script>
+    // =========================================================================
+    // 1. 六大領域概念場景資料庫（嚴格對應 6 張指定圖片檔名）
+    // =========================================================================
+    const REALMS_DATA = [
+      {
+        id: 'boys-lively',
+        parentZone: '男生生活區',
+        name: '男生熱鬧區',
+        subtitle: '動感活力帶',
+        image: '03669f50.jpeg',
+        countText: '4 項主要建設',
+        description: '以速度感與競技熱情為核心的活力街區，擁有貫穿空中的汽機車賽道、大型綜合體育場與大型電競網咖，玩累了隨時回到隔音極佳的簡約大公寓徹底放鬆。',
+        pins: [
+          {
+            id: 'pin-bl-1',
+            facilityId: 'm-active-1',
+            title: '汽機車賽道',
+            x: 35,
+            y: 65,
+            desc: '可騎機車、重機與開汽車競速兜風的專用道路，享受風馳電掣的快感與車友聚會樂趣。'
+          },
+          {
+            id: 'pin-bl-2',
+            facilityId: 'm-active-2',
+            title: '大型綜合體育場',
+            x: 24,
+            y: 52,
+            desc: '包含籃球、足球、田徑等各類運動的場館，隨時能與鄰居組隊比賽、揮灑汗水。'
+          },
+          {
+            id: 'pin-bl-3',
+            facilityId: 'm-active-3',
+            title: '大型電競網咖',
+            x: 84,
+            y: 55,
+            desc: '提供大量高階電腦、可連線打遊戲的網咖，與好友並肩開黑、暢玩各類熱門遊戲。'
+          },
+          {
+            id: 'pin-bl-4',
+            facilityId: 'm-active-4',
+            title: '隔音簡約大公寓',
+            x: 90,
+            y: 26,
+            desc: '裝潢簡單、隔音極佳的大型生活公寓，關上房門就能完全隔絕賽道與球場聲響。'
+          }
+        ]
+      },
+      {
+        id: 'boys-quiet',
+        parentZone: '男生生活區',
+        name: '男生安靜區',
+        subtitle: '森活沉澱帶',
+        image: '3047c9a1.jpeg',
+        countText: '5 項主要建設',
+        description: '被參天林木與暖陽包圍的靜謐領域，結合戶外探險區、透光大圖書館、高級料理教室與大型健身房，並在林間溪畔設有高隔音簡約大公寓。',
+        pins: [
+          {
+            id: 'pin-bq-1',
+            facilityId: 'm-quiet-4',
+            title: '透光大圖書館',
+            x: 33,
+            y: 34,
+            desc: '採光良好、安靜看書與自習的大型圖書館，金色陽光穿透玻璃穹頂灑落書頁。'
+          },
+          {
+            id: 'pin-bq-2',
+            facilityId: 'm-quiet-1',
+            title: '戶外探險區',
+            x: 15,
+            y: 72,
+            desc: '結合森林步道、湖畔露營與自然探索的戶外空間，適合週末露營野炊與健行。'
+          },
+          {
+            id: 'pin-bq-3',
+            facilityId: 'm-quiet-2',
+            title: '高級料理教室',
+            x: 56,
+            y: 62,
+            desc: '設備齊全、可學習各國料理與烘焙的廚房教室，親手烹調美味佳餚療癒身心。'
+          },
+          {
+            id: 'pin-bq-4',
+            facilityId: 'm-quiet-3',
+            title: '大型健身房',
+            x: 78,
+            y: 35,
+            desc: '提供重訓與有氧器材的運動空間，在專注且不受打擾的環境中鍛鍊健康體態。'
+          },
+          {
+            id: 'pin-bq-5',
+            facilityId: 'm-quiet-5',
+            title: '隔音簡約大公寓',
+            x: 91,
+            y: 68,
+            desc: '隱身於林間溪畔的高隔音簡約大公寓，提供零干擾的居家休息與冥想空間。'
+          }
+        ]
+      },
+      {
+        id: 'girls-lively',
+        parentZone: '女生生活區',
+        name: '女生熱鬧區',
+        subtitle: '璀璨風尚帶',
+        image: '28058aab.jpeg',
+        countText: '5 項主要建設',
+        description: '暮色晚霞映照下的浪漫社交街區，匯集大型購物商場、大型美妝商場、可跳舞聊天的戶外休閒廣場與室內交誼廳，後方即是安靜私密的隔音簡約大公寓。',
+        pins: [
+          {
+            id: 'pin-gl-1',
+            facilityId: 'f-active-1',
+            title: '大型購物商場',
+            x: 18,
+            y: 32,
+            desc: '販售服飾、生活用品與精品的綜合百貨，盡情挑選每日穿搭與布置公寓的好物。'
+          },
+          {
+            id: 'pin-gl-2',
+            facilityId: 'f-active-2',
+            title: '大型美妝商場',
+            x: 34,
+            y: 48,
+            desc: '專賣彩妝、保養品與香水的美妝百貨，體驗最新妝容與香氛，展現自信亮麗風采。'
+          },
+          {
+            id: 'pin-gl-3',
+            facilityId: 'f-active-3',
+            title: '戶外休閒廣場',
+            x: 46,
+            y: 66,
+            desc: '可跳舞、吹風、坐著聊天的露天大廣場，與好友一起隨音樂起舞或悠閒暢談日常。'
+          },
+          {
+            id: 'pin-gl-4',
+            facilityId: 'f-active-4',
+            title: '室內交誼廳',
+            x: 88,
+            y: 72,
+            desc: '設有沙發與遊戲設備，可坐著聊天和玩遊戲的室內空間，舒適聚會的最佳場所。'
+          },
+          {
+            id: 'pin-gl-5',
+            facilityId: 'f-active-5',
+            title: '隔音簡約大公寓',
+            x: 88,
+            y: 32,
+            desc: '裝潢簡單、隔音極佳的大型生活公寓，徹底隔絕商場人潮與廣場音樂。'
+          }
+        ]
+      },
+      {
+        id: 'girls-quiet',
+        parentZone: '女生生活區',
+        name: '女生安靜區',
+        subtitle: '質感手作帶',
+        image: '4776d7c9.jpeg',
+        countText: '6 項主要建設',
+        description: '充滿靈感與自然暖陽的療癒花園，除了透光大圖書館、高級料理教室、大型健身房與戶外探險區，更擁有女生安靜區專屬的「室內手作教室」與隔音簡約大公寓。',
+        pins: [
+          {
+            id: 'pin-gq-1',
+            facilityId: 'f-quiet-5',
+            title: '室內手作教室（專屬）',
+            x: 15,
+            y: 62,
+            desc: '女生安靜區專屬 DIY 空間，可做陶藝、花藝、編織與飾品手作，製作專屬禮物。'
+          },
+          {
+            id: 'pin-gq-2',
+            facilityId: 'f-quiet-4',
+            title: '透光大圖書館',
+            x: 34,
+            y: 44,
+            desc: '採光良好、安靜看書與自習的大型圖書館，在溫暖書香中靜心閱讀。'
+          },
+          {
+            id: 'pin-gq-3',
+            facilityId: 'f-quiet-3',
+            title: '大型健身房',
+            x: 66,
+            y: 26,
+            desc: '提供完善有氧與重訓器材的現代健身中心，維持健康體態與輕盈活力。'
+          },
+          {
+            id: 'pin-gq-4',
+            facilityId: 'f-quiet-2',
+            title: '高級料理教室',
+            x: 68,
+            y: 48,
+            desc: '專業烹飪與烘焙廚房教室，與好友一起製作精緻甜點與各國料理。'
+          },
+          {
+            id: 'pin-gq-5',
+            facilityId: 'f-quiet-6',
+            title: '戶外探險區 & 隔音公寓',
+            x: 90,
+            y: 38,
+            desc: '結合溪畔森林步道與高隔音簡約大公寓，享受最純粹的安靜居家與自然時光。'
+          }
+        ]
+      },
+      {
+        id: 'central-family',
+        parentZone: '中央共同區',
+        name: '中央家庭與寵物區',
+        subtitle: '暖心親子毛孩樂園',
+        image: '3f6ebca0.jpeg',
+        countText: '7 項主要建設',
+        description: '專為有小孩或有寵物的家庭打造的溫馨園區，集結兒童遊樂園、社區托兒所、親子活動館、大型寵物公園、專業獸醫院、寵物友善餐廳與長照看護中心。',
+        pins: [
+          {
+            id: 'pin-cf-1',
+            facilityId: 'c-family-1',
+            title: '兒童遊樂園 & 托兒所',
+            x: 24,
+            y: 45,
+            desc: '設有溜滑梯、鞦韆的安全戶外樂園與社區托兒所，讓孩子快樂成長、家長安心。'
+          },
+          {
+            id: 'pin-cf-2',
+            facilityId: 'c-family-3',
+            title: '親子活動館',
+            x: 30,
+            y: 26,
+            desc: '適合家長帶小孩一起玩樂、共讀與互動的室內溫馨空間。'
+          },
+          {
+            id: 'pin-cf-3',
+            facilityId: 'c-family-4',
+            title: '大型寵物公園',
+            x: 52,
+            y: 65,
+            desc: '擁有廣闊草皮與跑跳設施的毛孩活動公園，讓狗狗貓咪自由奔跑交朋友。'
+          },
+          {
+            id: 'pin-cf-4',
+            facilityId: 'c-family-5',
+            title: '專業獸醫院 & 寵物餐廳',
+            x: 76,
+            y: 56,
+            desc: '提供寵物健檢治療的專業獸醫院，以及可帶毛孩一起用餐的寵物友善餐廳。'
+          },
+          {
+            id: 'pin-cf-5',
+            facilityId: 'c-family-7',
+            title: '長照看護中心',
+            x: 86,
+            y: 28,
+            desc: '照料年長者或行動不便居民的安養看護中心，讓全齡家庭成員都在社區獲得暖心陪伴。'
+          }
+        ]
+      },
+      {
+        id: 'central-exchange',
+        parentZone: '中央共同區',
+        name: '中央男女綜合交流區',
+        subtitle: '全功能交流中心',
+        image: 'cc9dfb89.jpeg',
+        countText: '完整集合男女區全部 12 項建設',
+        description: '位於生活區正中央的超大型複合交流聖殿！「全功能交流中心」完整集合了男生與女生生活區的所有 12 項建設，讓所有居民都能跨越區域限制、自由交友、約會與一起活動。',
+        pins: [
+          {
+            id: 'pin-ce-1',
+            facilityId: 'c-exchange-1',
+            title: '中央露天跳舞與交誼廣場',
+            x: 50,
+            y: 66,
+            desc: '結合戶外休閒廣場與室內交誼廳，無論跳舞、聊天或玩桌遊，都是跨區聚會首選。'
+          },
+          {
+            id: 'pin-ce-2',
+            facilityId: 'c-exchange-1',
+            title: '共享賽道、體育場與電競館',
+            x: 20,
+            y: 52,
+            desc: '完整收錄男生區的汽機車賽道、綜合體育場與電競網咖，男女居民可隨時組隊同樂。'
+          },
+          {
+            id: 'pin-ce-3',
+            facilityId: 'c-exchange-1',
+            title: '綜合購物與美妝百貨',
+            x: 80,
+            y: 48,
+            desc: '完整收錄女生區的購物商場與美妝商場，情侶與好友可一起逛街挑選禮物。'
+          },
+          {
+            id: 'pin-ce-4',
+            facilityId: 'c-exchange-1',
+            title: '共學手作、料理、健身與圖書館',
+            x: 50,
+            y: 28,
+            desc: '完整包含室內手作教室、高級料理教室、大型健身房、透光圖書館與戶外探險區。'
+          }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. 完整 28 項建設資料庫（全部綁定對應 6 張概念場景圖）
+    // =========================================================================
+    const FACILITIES_DATA = [
+      // 男生熱鬧區 (4)
+      {
+        id: 'm-active-1',
+        mainZone: '男生生活區',
+        subZone: '男生熱鬧區',
+        name: '汽機車賽道',
+        icon: 'bike',
+        sceneImage: '03669f50.jpeg',
+        description: '可騎機車、重機與開汽車競速兜風的專用道路，享受風馳電掣的速度感與車友聚會樂趣。',
+        stats: { vitality: 40, resonance: 30, serenity: 0 },
+        tags: ['機車/重機/汽車', '+活力指數']
+      },
+      {
+        id: 'm-active-2',
+        mainZone: '男生生活區',
+        subZone: '男生熱鬧區',
+        name: '大型綜合體育場',
+        icon: 'trophy',
+        sceneImage: '03669f50.jpeg',
+        description: '包含籃球、足球、田徑等各類運動的場館，隨時能與鄰居組隊比賽、揮灑汗水。',
+        stats: { vitality: 40, resonance: 35, serenity: 0 },
+        tags: ['各類體育項目', '+社交共鳴']
+      },
+      {
+        id: 'm-active-3',
+        mainZone: '男生生活區',
+        subZone: '男生熱鬧區',
+        name: '大型電競網咖',
+        icon: 'monitor',
+        sceneImage: '03669f50.jpeg',
+        description: '提供大量高階電腦、可連線打遊戲的網咖，與好友並肩開黑、暢玩各類熱門遊戲。',
+        stats: { vitality: 30, resonance: 35, serenity: 5 },
+        tags: ['大量電競電腦', '+社交共鳴']
+      },
+      {
+        id: 'm-active-4',
+        mainZone: '男生生活區',
+        subZone: '男生熱鬧區',
+        name: '隔音簡約大公寓',
+        icon: 'building-2',
+        sceneImage: '03669f50.jpeg',
+        isApartment: true,
+        description: '裝潢簡單、隔音極佳的大型生活公寓。即使窗外熱鬧非凡，關上門就能享受絕對安靜的個人時光。',
+        stats: { vitality: 15, resonance: 5, serenity: 100 },
+        tags: ['100% 隔音休憩', '+隔音休憩']
+      },
+
+      // 男生安靜區 (5)
+      {
+        id: 'm-quiet-1',
+        mainZone: '男生生活區',
+        subZone: '男生安靜區',
+        name: '戶外探險區',
+        icon: 'trees',
+        sceneImage: '3047c9a1.jpeg',
+        description: '結合森林步道、露營與自然探索的戶外空間，遠離塵囂、呼吸新鮮空氣並體驗野炊露營。',
+        stats: { vitality: 35, resonance: 15, serenity: 35 },
+        tags: ['森林自然探險', '+隔音休憩']
+      },
+      {
+        id: 'm-quiet-2',
+        mainZone: '男生生活區',
+        subZone: '男生安靜區',
+        name: '高級料理教室',
+        icon: 'chef-hat',
+        sceneImage: '3047c9a1.jpeg',
+        description: '設備齊全、可學習各國料理與烘焙的廚房教室，親手烹調美味佳餚療癒身心。',
+        stats: { vitality: 30, resonance: 25, serenity: 30 },
+        tags: ['高級做飯教室', '+活力指數']
+      },
+      {
+        id: 'm-quiet-3',
+        mainZone: '男生生活區',
+        subZone: '男生安靜區',
+        name: '大型健身房',
+        icon: 'dumbbell',
+        sceneImage: '3047c9a1.jpeg',
+        description: '提供重訓與有氧器材的運動空間，在專注且不受打擾的環境中鍛鍊健康體魄。',
+        stats: { vitality: 40, resonance: 10, serenity: 25 },
+        tags: ['重訓與有氧', '+活力指數']
+      },
+      {
+        id: 'm-quiet-4',
+        mainZone: '男生生活區',
+        subZone: '男生安靜區',
+        name: '透光大圖書館',
+        icon: 'book-open',
+        sceneImage: '3047c9a1.jpeg',
+        description: '採光良好、安靜看書與自習的大型圖書館，陽光灑落木桌，享受靜謐閱讀與進修時光。',
+        stats: { vitality: 20, resonance: 10, serenity: 45 },
+        tags: ['大型透光圖書館', '+隔音休憩']
+      },
+      {
+        id: 'm-quiet-5',
+        mainZone: '男生生活區',
+        subZone: '男生安靜區',
+        name: '隔音簡約大公寓',
+        icon: 'building-2',
+        sceneImage: '3047c9a1.jpeg',
+        isApartment: true,
+        description: '與熱鬧區同規格的高隔音簡約大公寓，坐落於安靜綠意之中，提供零干擾的居家休息空間。',
+        stats: { vitality: 15, resonance: 5, serenity: 100 },
+        tags: ['100% 隔音休憩', '+隔音休憩']
+      },
+
+      // 女生熱鬧區 (5)
+      {
+        id: 'f-active-1',
+        mainZone: '女生生活區',
+        subZone: '女生熱鬧區',
+        name: '大型購物商場',
+        icon: 'shopping-bag',
+        sceneImage: '28058aab.jpeg',
+        description: '販售服飾、生活用品與精品的綜合百貨，盡情挑選每日穿搭與布置公寓的精緻好物。',
+        stats: { vitality: 30, resonance: 35, serenity: 10 },
+        tags: ['大型購物商場', '+社交共鳴']
+      },
+      {
+        id: 'f-active-2',
+        mainZone: '女生生活區',
+        subZone: '女生熱鬧區',
+        name: '大型美妝商場',
+        icon: 'sparkles',
+        sceneImage: '28058aab.jpeg',
+        description: '專賣彩妝、保養品與香水的美妝百貨，體驗最新妝容與香氛，展現自信亮麗風采。',
+        stats: { vitality: 30, resonance: 35, serenity: 10 },
+        tags: ['大型美妝商場', '+社交共鳴']
+      },
+      {
+        id: 'f-active-3',
+        mainZone: '女生生活區',
+        subZone: '女生熱鬧區',
+        name: '戶外休閒廣場',
+        icon: 'music',
+        sceneImage: '28058aab.jpeg',
+        description: '可跳舞、吹風、坐著聊天的露天大廣場，與好友一起隨音樂起舞或悠閒暢談日常。',
+        stats: { vitality: 35, resonance: 45, serenity: 15 },
+        tags: ['跳舞與聊天廣場', '+社交共鳴']
+      },
+      {
+        id: 'f-active-4',
+        mainZone: '女生生活區',
+        subZone: '女生熱鬧區',
+        name: '室內交誼廳',
+        icon: 'sofa',
+        sceneImage: '28058aab.jpeg',
+        description: '設有沙發與遊戲設備，可坐著聊天和玩遊戲的室內空間，舒適聚會、認識新鄰居的好去處。',
+        stats: { vitality: 25, resonance: 40, serenity: 20 },
+        tags: ['坐著聊天玩遊戲', '+社交共鳴']
+      },
+      {
+        id: 'f-active-5',
+        mainZone: '女生生活區',
+        subZone: '女生熱鬧區',
+        name: '隔音簡約大公寓',
+        icon: 'building-2',
+        sceneImage: '28058aab.jpeg',
+        isApartment: true,
+        description: '裝潢簡單、隔音極佳的大型生活公寓，徹底隔絕商場人潮與廣場音樂，享受安心私密空間。',
+        stats: { vitality: 15, resonance: 5, serenity: 100 },
+        tags: ['100% 隔音休憩', '+隔音休憩']
+      },
+
+      // 女生安靜區 (6)
+      {
+        id: 'f-quiet-1',
+        mainZone: '女生生活區',
+        subZone: '女生安靜區',
+        name: '戶外探險區',
+        icon: 'trees',
+        sceneImage: '4776d7c9.jpeg',
+        description: '與男生區同等級的自然探索與露營區，享受森林散步、露營野餐與大自然的療癒力量。',
+        stats: { vitality: 35, resonance: 15, serenity: 35 },
+        tags: ['自然探索露營', '+隔音休憩']
+      },
+      {
+        id: 'f-quiet-2',
+        mainZone: '女生生活區',
+        subZone: '女生安靜區',
+        name: '高級料理教室',
+        icon: 'chef-hat',
+        sceneImage: '4776d7c9.jpeg',
+        description: '與男生區同等級的專業烹飪教室，烘焙甜點與製作精緻料理，享受下廚的成就感。',
+        stats: { vitality: 30, resonance: 25, serenity: 30 },
+        tags: ['高級做飯教室', '+活力指數']
+      },
+      {
+        id: 'f-quiet-3',
+        mainZone: '女生生活區',
+        subZone: '女生安靜區',
+        name: '大型健身房',
+        icon: 'dumbbell',
+        sceneImage: '4776d7c9.jpeg',
+        description: '與男生區同等級的現代健身中心，提供完善有氧與重訓設施，維持健康體態與活力。',
+        stats: { vitality: 40, resonance: 10, serenity: 25 },
+        tags: ['現代健身中心', '+活力指數']
+      },
+      {
+        id: 'f-quiet-4',
+        mainZone: '女生生活區',
+        subZone: '女生安靜區',
+        name: '透光大圖書館',
+        icon: 'book-open',
+        sceneImage: '4776d7c9.jpeg',
+        description: '與男生區同等級的採光大圖書館，在明亮溫馨的書香空間裡靜心閱讀與學習。',
+        stats: { vitality: 20, resonance: 10, serenity: 45 },
+        tags: ['大型透光圖書館', '+隔音休憩']
+      },
+      {
+        id: 'f-quiet-5',
+        mainZone: '女生生活區',
+        subZone: '女生安靜區',
+        name: '室內手作教室',
+        icon: 'palette',
+        sceneImage: '4776d7c9.jpeg',
+        exclusiveBadge: '女生安靜區專屬',
+        description: '可做陶藝、編織、花藝與飾品 DIY 的創作空間，親手製作獨一無二的作品裝飾房間或贈送親友。',
+        stats: { vitality: 30, resonance: 20, serenity: 45 },
+        tags: ['室內手作區 DIY', '+隔音休憩']
+      },
+      {
+        id: 'f-quiet-6',
+        mainZone: '女生生活區',
+        subZone: '女生安靜區',
+        name: '隔音簡約大公寓',
+        icon: 'building-2',
+        sceneImage: '4776d7c9.jpeg',
+        isApartment: true,
+        description: '與熱鬧區同規格的高隔音簡約大公寓，空間寬敞明亮，給喜歡安靜居家生活的你最棒的休憩所。',
+        stats: { vitality: 15, resonance: 5, serenity: 100 },
+        tags: ['100% 隔音休憩', '+隔音休憩']
+      },
+
+      // 中央家庭與寵物區 (7)
+      {
+        id: 'c-family-1',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '兒童遊樂園',
+        icon: 'ferris-wheel',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '設有溜滑梯、鞦韆與安全設施的戶外樂園，讓孩子盡情奔跑玩耍、結交社區小伙伴。',
+        stats: { vitality: 35, resonance: 35, serenity: 15 },
+        tags: ['小孩遊樂園', '+社交共鳴']
+      },
+      {
+        id: 'c-family-2',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '社區托兒所',
+        icon: 'baby',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '提供幼兒照顧與學前教育的托育中心，專業溫馨的照護環境讓家長安心上班與生活。',
+        stats: { vitality: 20, resonance: 25, serenity: 35 },
+        tags: ['安心托兒所', '+隔音休憩']
+      },
+      {
+        id: 'c-family-3',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '親子活動館',
+        icon: 'blocks',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '適合家長帶小孩一起玩樂、互動的室內空間，不受天氣影響，增進親子間的緊密感情。',
+        stats: { vitality: 30, resonance: 35, serenity: 25 },
+        tags: ['溫馨親子場所', '+社交共鳴']
+      },
+      {
+        id: 'c-family-4',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '大型寵物公園',
+        icon: 'paw-print',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '有大草皮與跑跳設施的毛孩活動公園，帶狗狗貓咪出來散步社交，認識愛寵鄰居。',
+        stats: { vitality: 35, resonance: 35, serenity: 30 },
+        tags: ['大型寵物公園', '+社交共鳴']
+      },
+      {
+        id: 'c-family-5',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '專業獸醫院',
+        icon: 'stethoscope',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '提供寵物健檢、看病與治療的動物醫院，全方位守護每一位毛孩的健康與活力。',
+        stats: { vitality: 20, resonance: 20, serenity: 30 },
+        tags: ['專業獸醫院', '+隔音休憩']
+      },
+      {
+        id: 'c-family-6',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '寵物友善餐廳',
+        icon: 'utensils',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '可帶毛孩一起用餐的餐廳，提供美味餐點與寵物專屬鮮食，享受人寵共桌的幸福時光。',
+        stats: { vitality: 25, resonance: 35, serenity: 30 },
+        tags: ['寵物餐廳', '+社交共鳴']
+      },
+      {
+        id: 'c-family-7',
+        mainZone: '中央共同區',
+        subZone: '家庭與寵物區',
+        name: '長照看護中心',
+        icon: 'heart-handshake',
+        sceneImage: '3f6ebca0.jpeg',
+        description: '照料年長者或行動不便居民的安養看護中心，環境溫暖親切，讓長輩在社區中獲得完善照顧。',
+        stats: { vitality: 20, resonance: 30, serenity: 35 },
+        tags: ['暖心看護中心', '+社交共鳴']
+      },
+
+      // 中央男女綜合交流區 (1 flagship containing all 12)
+      {
+        id: 'c-exchange-1',
+        mainZone: '中央共同區',
+        subZone: '男女綜合交流區',
+        name: '全功能交流中心',
+        icon: 'building',
+        sceneImage: 'cc9dfb89.jpeg',
+        isFlagship: true,
+        includedList: [
+          '汽機車賽道', '綜合體育場', '電競網咖', '購物商場',
+          '美妝商場', '跳舞廣場', '室內交誼廳', '戶外探險區',
+          '高級料理教室', '大型健身房', '透光圖書館', '室內手作教室'
+        ],
+        description: '完整集合男女生活區的所有 12 項建設，讓所有人都能跨區交友、約會與一起活動！',
+        stats: { vitality: 35, resonance: 50, serenity: 20 },
+        tags: ['12項建設全收錄', '大型男女交流空間', '+社交共鳴']
+      }
+    ];
+
+    // 斗篷光翼徽章色彩選項
+    const CAPE_EMBLEMS = [
+      { id: 'cape-gold', label: '晨曦金光翼', color: '#ffd166', bgClass: 'bg-sunbeam-400/25 text-sunbeam-300 border-sunbeam-300/60' },
+      { id: 'cape-sky', label: '雲野藍光翼', color: '#7dd3fc', bgClass: 'bg-sky-400/25 text-sky-300 border-sky-300/60' },
+      { id: 'cape-dawn', label: '霞谷粉光翼', color: '#f4a28c', bgClass: 'bg-dawn-400/25 text-dawn-300 border-dawn-300/60' },
+      { id: 'cape-forest', label: '雨林翠光翼', color: '#6ee7b7', bgClass: 'bg-emerald-400/25 text-emerald-300 border-emerald-300/60' },
+      { id: 'cape-vault', label: '禁閣紫光翼', color: '#c4b5fd', bgClass: 'bg-violet-400/25 text-violet-300 border-violet-300/60' }
+    ];
+
+    const SUB_ZONES_MAP = {
+      'all': ['all', '男生熱鬧區', '男生安靜區', '女生熱鬧區', '女生安靜區', '家庭與寵物區', '男女綜合交流區'],
+      '男生生活區': ['all', '男生熱鬧區', '男生安靜區'],
+      '女生生活區': ['all', '女生熱鬧區', '女生安靜區'],
+      '中央共同區': ['all', '家庭與寵物區', '男女綜合交流區']
+    };
+
+    // =========================================================================
+    // 3. 全域互動狀態變數
+    // =========================================================================
+    let currentHeroIdx = 0;
+    let isHeroAutoplay = true;
+    let heroCarouselTimer = null;
+
+    let currentRealmIdx = 0;
+    let currentPinIdx = 0;
+
+    let dirMainFilter = 'all';
+    let dirSubFilter = 'all';
+    let dirSearchQuery = '';
+
+    let rhythmSchedule = {
+      morning: 'm-active-1',   // 汽機車賽道
+      afternoon: 'm-quiet-4',  // 透光大圖書館
+      evening: 'm-quiet-5'     // 隔音簡約大公寓
+    };
+
+    let selectedCape = CAPE_EMBLEMS[0];
+    let selectedPassRealm = REALMS_DATA[0];
+    let mintedPassId = 'SKY-2026-0818';
+
+    // =========================================================================
+    // 4. 飄浮金色光翼粒子與星辰 Canvas 背景
+    // =========================================================================
+    const skyCanvas = document.getElementById('sky-particles-canvas');
+    const skyCtx = skyCanvas.getContext('2d');
+    let skyParticles = [];
+
+    function resizeSkyCanvas() {
+      skyCanvas.width = window.innerWidth;
+      skyCanvas.height = window.innerHeight;
+    }
+
+    function createSkyParticles() {
+      resizeSkyCanvas();
+      const total = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 17000));
+      skyParticles = [];
+      for (let i = 0; i < total; i++) {
+        const isWingedLight = Math.random() > 0.35;
+        skyParticles.push({
+          x: Math.random() * skyCanvas.width,
+          y: Math.random() * skyCanvas.height,
+          size: isWingedLight ? (Math.random() * 2.5 + 1.2) : (Math.random() * 1.4 + 0.5),
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: isWingedLight ? -(Math.random() * 0.35 + 0.12) : (Math.random() - 0.5) * 0.06,
+          alpha: Math.random() * 0.75 + 0.2,
+          deltaAlpha: (Math.random() * 0.015 + 0.005) * (Math.random() > 0.5 ? 1 : -1),
+          gold: isWingedLight
+        });
+      }
+    }
+
+    function renderSkyParticles() {
+      skyCtx.clearRect(0, 0, skyCanvas.width, skyCanvas.height);
+      for (let p of skyParticles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha += p.deltaAlpha;
+        if (p.alpha >= 0.92 || p.alpha <= 0.15) p.deltaAlpha *= -1;
+
+        if (p.y < -12) p.y = skyCanvas.height + 12;
+        if (p.y > skyCanvas.height + 12) p.y = -12;
+        if (p.x < -12) p.x = skyCanvas.width + 12;
+        if (p.x > skyCanvas.width + 12) p.x = -12;
+
+        skyCtx.save();
+        skyCtx.beginPath();
+        if (p.gold) {
+          // 繪製微小的光翼菱形星點
+          skyCtx.translate(p.x, p.y);
+          skyCtx.rotate(Math.PI / 4);
+          skyCtx.rect(-p.size, -p.size, p.size * 2, p.size * 2);
+          skyCtx.fillStyle = `rgba(255, 218, 121, ${p.alpha})`;
+          skyCtx.shadowBlur = 12;
+          skyCtx.shadowColor = 'rgba(255, 209, 102, 0.9)';
+        } else {
+          skyCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          skyCtx.fillStyle = `rgba(224, 231, 255, ${p.alpha * 0.85})`;
+        }
+        skyCtx.fill();
+        skyCtx.restore();
+      }
+      requestAnimationFrame(renderSkyParticles);
+    }
+
+    window.addEventListener('resize', resizeSkyCanvas);
+
+    // =========================================================================
+    // 5. Web Audio API 治癒雲端豎琴旋律（「聆聽雲端旋律」）
+    // =========================================================================
+    let harpCtx = null;
+    let isMelodyOn = false;
+    let melodyTimer = null;
+    const skyNotes = [523.25, 587.33, 659.25, 783.99, 880.0, 1046.5, 1174.66, 1318.51];
+
+    function triggerSingleHarpNote() {
+      if (!harpCtx || !isMelodyOn) return;
+      try {
+        const now = harpCtx.currentTime;
+        const freq = skyNotes[Math.floor(Math.random() * skyNotes.length)];
+        const osc = harpCtx.createOscillator();
+        const gain = harpCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.04, now + 0.09);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.8);
+
+        osc.connect(gain);
+        gain.connect(harpCtx.destination);
+        osc.start(now);
+        osc.stop(now + 2.9);
+      } catch (e) {
+        // 忽略瀏覽器音訊限制
+      }
+    }
+
+    function toggleHarpMelody() {
+      const b1 = document.getElementById('w-bar-1');
+      const b2 = document.getElementById('w-bar-2');
+      const b3 = document.getElementById('w-bar-3');
+      const label = document.getElementById('audio-btn-text');
+
+      if (!isMelodyOn) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!harpCtx && AudioCtx) harpCtx = new AudioCtx();
+        if (harpCtx && harpCtx.state === 'suspended') harpCtx.resume();
+
+        isMelodyOn = true;
+        triggerSingleHarpNote();
+        melodyTimer = setInterval(triggerSingleHarpNote, 1550);
+        b1.classList.add('wave-1');
+        b2.classList.add('wave-2');
+        b3.classList.add('wave-3');
+        if (label) label.textContent = '雲端旋律聆聽中';
+        showSkyToast('已開啟雲端豎琴治癒旋律');
+      } else {
+        isMelodyOn = false;
+        if (melodyTimer) clearInterval(melodyTimer);
+        b1.classList.remove('wave-1');
+        b2.classList.remove('wave-2');
+        b3.classList.remove('wave-3');
+        if (label) label.textContent = '聆聽雲端旋律';
+        showSkyToast('已暫停雲端旋律');
+      }
+    }
+
+    // =========================================================================
+    // 6. Hero 全螢幕六大領域輪播與縮圖選擇列
+    // =========================================================================
+    function initHeroCarousel() {
+      const slidesBox = document.getElementById('hero-slides-container');
+      const thumbsBox = document.getElementById('hero-thumbs-bar');
+
+      slidesBox.innerHTML = REALMS_DATA.map((realm, idx) => `
+        <div
+          id="hero-slide-${idx}"
+          class="absolute inset-0 transition-opacity duration-1000 ${idx === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}"
+        >
+          <img
+            src="${realm.image}"
+            alt="${realm.name}"
+            class="w-full h-full object-cover ${idx === 0 ? 'hero-zoom-active' : ''}"
+          />
+        </div>
+      `).join('');
+
+      thumbsBox.innerHTML = REALMS_DATA.map((realm, idx) => `
+        <button
+          id="hero-thumb-${idx}"
+          onclick="switchHeroSlide(${idx}, true)"
+          class="group relative rounded-2xl overflow-hidden border-2 transition-all text-left cursor-pointer h-16 sm:h-20 ${
+            idx === 0
+              ? 'border-sunbeam-400 shadow-[0_0_18px_rgba(255,209,102,0.55)] scale-[1.02]'
+              : 'border-white/15 opacity-75 hover:opacity-100 hover:border-sunbeam-300/60'
+          }"
+        >
+          <img
+            src="${realm.image}"
+            alt="${realm.name}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-twilight-950/90 via-twilight-950/35 to-transparent"></div>
+          <div class="absolute bottom-1.5 left-2.5 right-2">
+            <div class="text-[10px] text-sunbeam-300 font-bold leading-none truncate">${realm.parentZone}</div>
+            <div class="text-xs font-extrabold text-white truncate mt-0.5">${realm.name}</div>
+          </div>
+        </button>
+      `).join('');
+
+      startHeroTimer();
+    }
+
+    function switchHeroSlide(idx, manual = false) {
+      currentHeroIdx = idx;
+      const realm = REALMS_DATA[idx];
+      document.getElementById('hero-caption-label').textContent = `當前映照領域：${realm.name}（${realm.subtitle}）`;
+
+      REALMS_DATA.forEach((_, i) => {
+        const slide = document.getElementById(`hero-slide-${i}`);
+        const img = slide ? slide.querySelector('img') : null;
+        const thumb = document.getElementById(`hero-thumb-${i}`);
+
+        if (i === idx) {
+          slide.classList.remove('opacity-0', 'pointer-events-none');
+          slide.classList.add('opacity-100');
+          if (img) img.classList.add('hero-zoom-active');
+          thumb.className = 'group relative rounded-2xl overflow-hidden border-2 transition-all text-left cursor-pointer h-16 sm:h-20 border-sunbeam-400 shadow-[0_0_18px_rgba(255,209,102,0.55)] scale-[1.02]';
+        } else {
+          slide.classList.add('opacity-0', 'pointer-events-none');
+          slide.classList.remove('opacity-100');
+          if (img) img.classList.remove('hero-zoom-active');
+          thumb.className = 'group relative rounded-2xl overflow-hidden border-2 transition-all text-left cursor-pointer h-16 sm:h-20 border-white/15 opacity-75 hover:opacity-100 hover:border-sunbeam-300/60';
+        }
+      });
+
+      if (manual && isHeroAutoplay) {
+        clearInterval(heroCarouselTimer);
+        startHeroTimer();
+      }
+    }
+
+    function startHeroTimer() {
+      if (heroCarouselTimer) clearInterval(heroCarouselTimer);
+      heroCarouselTimer = setInterval(() => {
+        if (isHeroAutoplay) {
+          switchHeroSlide((currentHeroIdx + 1) % REALMS_DATA.length, false);
+        }
+      }, 5500);
+    }
+
+    function toggleHeroCarouselPlay() {
+      isHeroAutoplay = !isHeroAutoplay;
+      const statusEl = document.getElementById('hero-play-status');
+      if (statusEl) statusEl.textContent = isHeroAutoplay ? '自動巡禮中' : '已暫停巡禮';
+      if (isHeroAutoplay) startHeroTimer();
+      else if (heroCarouselTimer) clearInterval(heroCarouselTimer);
+    }
+
+    // =========================================================================
+    // 7. 六大領域場景導覽 & 光翼互動座標
+    // =========================================================================
+    function renderRealmsShowcase() {
+      const tabsBar = document.getElementById('realm-tabs-bar');
+      const realm = REALMS_DATA[currentRealmIdx];
+
+      tabsBar.innerHTML = REALMS_DATA.map((r, idx) => {
+        const active = idx === currentRealmIdx;
+        const btnClass = active
+          ? 'bg-gradient-to-r from-sunbeam-200 via-sunbeam-400 to-sunbeam-500 text-twilight-950 font-extrabold shadow-[0_0_24px_rgba(255,209,102,0.5)] border-transparent'
+          : 'cloud-glass text-indigo-100 hover:text-sunbeam-300 hover:border-sunbeam-400/45 font-bold';
+        return `
+          <button
+            onclick="selectRealmIndex(${idx})"
+            class="px-4 py-2.5 rounded-full text-xs sm:text-sm border transition-all cursor-pointer ${btnClass}"
+          >
+            ${r.name}
+          </button>
+        `;
+      }).join('');
+
+      const artworkImg = document.getElementById('realm-artwork-img');
+      artworkImg.src = realm.image;
+      artworkImg.alt = `${realm.name}概念場景`;
+
+      document.getElementById('realm-badge-overlay').innerHTML = `
+        <span class="w-1.5 h-1.5 rotate-45 bg-sunbeam-400"></span>
+        <span>${realm.parentZone} · ${realm.subtitle}</span>
+      `;
+      document.getElementById('realm-parent-text').textContent = realm.parentZone;
+      document.getElementById('realm-count-text').textContent = realm.countText;
+      document.getElementById('realm-title-text').textContent = realm.name;
+      document.getElementById('realm-desc-text').textContent = realm.description;
+
+      // 渲染光翼菱形座標（Winged-Light Pins）
+      const pinsLayer = document.getElementById('realm-pins-layer');
+      pinsLayer.innerHTML = realm.pins.map((pin, pIdx) => {
+        const isSelected = pIdx === currentPinIdx;
+        return `
+          <button
+            onclick="selectPinIndex(${pIdx})"
+            onmouseenter="selectPinIndex(${pIdx})"
+            style="left: ${pin.x}%; top: ${pin.y}%;"
+            aria-label="光翼座標：${pin.title}"
+            class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer focus:outline-none z-20"
+          >
+            <span class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-lg ${
+              isSelected
+                ? 'bg-sunbeam-200 text-twilight-950 rotate-45 scale-125 ring-4 ring-sunbeam-400/60 shadow-[0_0_25px_#ffd166]'
+                : 'bg-sunbeam-400 text-twilight-950 winged-pin-diamond hover:scale-125'
+            } transition-all">
+              <span class="w-2.5 h-2.5 bg-twilight-950 rounded-full"></span>
+            </span>
+            <span class="hidden sm:inline-block mt-2.5 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold whitespace-nowrap ${
+              isSelected
+                ? 'bg-sunbeam-400 text-twilight-950 shadow-lg'
+                : 'bg-twilight-950/85 text-white border border-sunbeam-400/40 backdrop-blur-md'
+            }">
+              ${pin.title}
+            </span>
+          </button>
+        `;
+      }).join('');
+
+      // 渲染下方光點膠囊列表
+      const pillsBox = document.getElementById('realm-pin-pills');
+      pillsBox.innerHTML = realm.pins.map((pin, pIdx) => {
+        const isSelected = pIdx === currentPinIdx;
+        return `
+          <button
+            onclick="selectPinIndex(${pIdx})"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border transition-all cursor-pointer ${
+              isSelected
+                ? 'bg-sunbeam-400 text-twilight-950 border-sunbeam-300 shadow-sm'
+                : 'bg-white/5 text-indigo-100 border-white/15 hover:border-sunbeam-400/45'
+            }"
+          >
+            <span class="w-1.5 h-1.5 rotate-45 ${isSelected ? 'bg-twilight-950' : 'bg-sunbeam-400'}"></span>
+            <span>${pin.title}</span>
+          </button>
+        `;
+      }).join('');
+
+      // 更新右側光翼座標詳情卡
+      const activePin = realm.pins[currentPinIdx] || realm.pins[0];
+      document.getElementById('pin-detail-title').textContent = activePin.title;
+      document.getElementById('pin-detail-desc').textContent = activePin.desc;
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function selectRealmIndex(idx) {
+      currentRealmIdx = idx;
+      currentPinIdx = 0;
+      renderRealmsShowcase();
+    }
+
+    function selectRealmById(realmId) {
+      const idx = REALMS_DATA.findIndex(r => r.id === realmId);
+      if (idx !== -1) {
+        selectRealmIndex(idx);
+      }
+    }
+
+    function selectPinIndex(pIdx) {
+      currentPinIdx = pIdx;
+      renderRealmsShowcase();
+    }
+
+    function focusHotspotHint() {
+      showSkyToast('點擊場景中閃耀的金色菱形光點，即可探索建築玩法！');
+    }
+
+    function addSelectedPinToRhythm() {
+      const realm = REALMS_DATA[currentRealmIdx];
+      const pin = realm.pins[currentPinIdx];
+      if (pin && pin.facilityId) {
+        scheduleFacilityToRhythm(pin.facilityId);
+      }
+    }
+
+    function filterConstellationByCurrentRealm() {
+      const realm = REALMS_DATA[currentRealmIdx];
+      let targetSub = realm.name;
+      if (realm.name === '中央家庭與寵物區') targetSub = '家庭與寵物區';
+      if (realm.name === '中央男女綜合交流區') targetSub = '男女綜合交流區';
+      selectConstellationNode(realm.parentZone, targetSub);
+      document.getElementById('constellation').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 全螢幕概念畫作燈箱控制
+    function openArtworkLightbox() {
+      const realm = REALMS_DATA[currentRealmIdx];
+      document.getElementById('lb-zone-tag').textContent = `${realm.parentZone} · ${realm.subtitle}`;
+      document.getElementById('lb-title').textContent = realm.name;
+      document.getElementById('lb-image').src = realm.image;
+      document.getElementById('lb-description').textContent = realm.description;
+
+      const modal = document.getElementById('artwork-lightbox');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeArtworkLightbox() {
+      const modal = document.getElementById('artwork-lightbox');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function stepArtworkLightbox(dir) {
+      currentRealmIdx = (currentRealmIdx + dir + REALMS_DATA.length) % REALMS_DATA.length;
+      currentPinIdx = 0;
+      renderRealmsShowcase();
+      openArtworkLightbox();
+    }
+
+    document.getElementById('artwork-lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeArtworkLightbox();
+    });
+
+    // =========================================================================
+    // 8. 三區星圖與全建設圖鑑（28 項設施篩選與渲染）
+    // =========================================================================
+    function getSubZonePillStyle(subZone) {
+      if (subZone === '男生熱鬧區') return 'bg-sky-400/20 text-sky-200 border-sky-400/40';
+      if (subZone === '男生安靜區') return 'bg-teal-400/20 text-teal-200 border-teal-400/40';
+      if (subZone === '女生熱鬧區') return 'bg-rose-400/20 text-rose-200 border-rose-400/40';
+      if (subZone === '女生安靜區') return 'bg-dawn-400/25 text-dawn-300 border-dawn-400/45';
+      if (subZone === '家庭與寵物區') return 'bg-amber-400/20 text-amber-200 border-amber-400/40';
+      return 'bg-sunbeam-400/20 text-sunbeam-200 border-sunbeam-400/45';
+    }
+
+    function selectConstellationNode(mainZone, subZone) {
+      dirMainFilter = mainZone;
+      dirSubFilter = subZone;
+      dirSearchQuery = '';
+      document.getElementById('dir-search-input').value = '';
+      updateDirectoryFilterUI();
+      renderDirectoryCards();
+      showSkyToast(`星圖已聚焦：【${mainZone} · ${subZone}】`);
+    }
+
+    function setDirMainFilter(mainZone) {
+      dirMainFilter = mainZone;
+      dirSubFilter = 'all';
+      updateDirectoryFilterUI();
+      renderDirectoryCards();
+    }
+
+    function setDirSubFilter(subZone) {
+      dirSubFilter = subZone;
+      updateDirectoryFilterUI();
+      renderDirectoryCards();
+    }
+
+    function handleDirSearch(val) {
+      dirSearchQuery = val.trim().toLowerCase();
+      renderDirectoryCards();
+    }
+
+    function resetDirectoryFilters() {
+      dirMainFilter = 'all';
+      dirSubFilter = 'all';
+      dirSearchQuery = '';
+      document.getElementById('dir-search-input').value = '';
+      updateDirectoryFilterUI();
+      renderDirectoryCards();
+    }
+
+    function updateDirectoryFilterUI() {
+      document.querySelectorAll('.dir-main-btn').forEach(btn => {
+        const target = btn.getAttribute('data-main');
+        if (target === dirMainFilter) {
+          btn.className = 'dir-main-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-extrabold bg-sunbeam-400 text-twilight-950 shadow-[0_0_18px_rgba(255,209,102,0.4)] cursor-pointer transition-all';
+        } else {
+          btn.className = 'dir-main-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold cloud-glass text-indigo-100 hover:border-sunbeam-400/45 cursor-pointer transition-all';
+        }
+      });
+
+      const subBox = document.getElementById('dir-sub-tabs');
+      const subs = SUB_ZONES_MAP[dirMainFilter] || SUB_ZONES_MAP['all'];
+      subBox.innerHTML = subs.map(s => {
+        const isActive = s === dirSubFilter;
+        const text = s === 'all' ? '全部子領域' : s;
+        const cls = isActive
+          ? 'bg-sunbeam-400/25 text-sunbeam-300 border-sunbeam-400 font-extrabold'
+          : 'bg-white/5 text-indigo-200/80 border-white/15 hover:border-white/30 font-semibold';
+        return `
+          <button
+            onclick="setDirSubFilter('${s}')"
+            class="px-3.5 py-1.5 rounded-full text-xs border transition-all cursor-pointer ${cls}"
+          >
+            ${text}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderDirectoryCards() {
+      const grid = document.getElementById('dir-cards-grid');
+      const statusLabel = document.getElementById('dir-status-label');
+      const resetBtn = document.getElementById('dir-reset-btn');
+
+      const list = FACILITIES_DATA.filter(item => {
+        const matchMain = dirMainFilter === 'all' || item.mainZone === dirMainFilter;
+        const matchSub = dirSubFilter === 'all' || item.subZone === dirSubFilter;
+        const matchQ = !dirSearchQuery ||
+          item.name.toLowerCase().includes(dirSearchQuery) ||
+          item.description.toLowerCase().includes(dirSearchQuery) ||
+          item.subZone.toLowerCase().includes(dirSearchQuery) ||
+          (item.includedList && item.includedList.some(inc => inc.toLowerCase().includes(dirSearchQuery)));
+        return matchMain && matchSub && matchQ;
+      });
+
+      const mText = dirMainFilter === 'all' ? '全部領域' : dirMainFilter;
+      const sText = dirSubFilter === 'all' ? '' : ` › ${dirSubFilter}`;
+      const qText = dirSearchQuery ? `（搜尋：「${dirSearchQuery}」）` : '';
+      statusLabel.textContent = `正在顯示：${mText}${sText}${qText}（共 ${list.length} 項建設）`;
+
+      if (dirMainFilter !== 'all' || dirSubFilter !== 'all' || dirSearchQuery) {
+        resetBtn.classList.remove('hidden');
+      } else {
+        resetBtn.classList.add('hidden');
+      }
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full cloud-glass rounded-3xl p-10 text-center">
+            <p class="font-serif text-lg font-extrabold text-white mb-2">星圖中暫無符合條件的建設</p>
+            <p class="text-sm text-indigo-200/75 mb-4">試試看搜尋其他關鍵字，或點擊下方按鈕恢復顯示全部 28 項建設。</p>
+            <button onclick="resetDirectoryFilters()" class="px-6 py-2.5 rounded-full text-sm font-extrabold bg-sunbeam-400 text-twilight-950 cursor-pointer">
+              顯示全部 28 項建設
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = list.map(item => {
+        const pillCls = getSubZonePillStyle(item.subZone);
+        const spanCls = item.isFlagship ? 'md:col-span-2 lg:col-span-3 border-sunbeam-400/55' : '';
+
+        const includedBlock = item.includedList ? `
+          <div class="mt-4 pt-4 border-t border-white/15">
+            <div class="text-xs font-bold text-sunbeam-300 mb-2">完整包含男女生活區所有 12 項建設：</div>
+            <div class="flex flex-wrap gap-1.5">
+              ${item.includedList.map(inc => `
+                <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white/10 text-white border border-sunbeam-400/30">
+                  ${inc}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+        ` : '';
+
+        const exclusiveTag = item.exclusiveBadge ? `
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-dawn-400/25 text-dawn-300 border border-dawn-400/45">
+            ★ ${item.exclusiveBadge}
+          </span>
+        ` : '';
+
+        return `
+          <article class="cloud-card rounded-3xl overflow-hidden flex flex-col justify-between ${spanCls}">
+            <div>
+              <!-- 頂部領域概念場景微縮圖橫幅 -->
+              <div class="relative h-32 overflow-hidden">
+                <img
+                  src="${item.sceneImage}"
+                  alt="${item.subZone}場景"
+                  class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-twilight-950 via-twilight-900/40 to-transparent"></div>
+                <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border backdrop-blur-md ${pillCls}">
+                    ${item.mainZone} · ${item.subZone}
+                  </span>
+                  ${exclusiveTag}
+                </div>
+                <div class="absolute bottom-2.5 left-4 flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-sunbeam-400/25 border border-sunbeam-300/50 text-sunbeam-200 backdrop-blur-md flex items-center justify-center shrink-0">
+                    <i data-lucide="${item.icon}" class="w-4 h-4"></i>
+                  </div>
+                  <h3 class="font-serif text-lg font-extrabold text-white drop-shadow">${item.name}</h3>
+                </div>
+              </div>
+
+              <!-- 設施介紹內容 -->
+              <div class="p-5">
+                <div class="flex flex-wrap gap-1.5 mb-2.5">
+                  ${item.tags.map(t => `<span class="text-[11px] font-semibold text-sunbeam-200/90 bg-white/10 px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}
+                </div>
+                <p class="text-sm text-indigo-100/85 leading-relaxed">
+                  ${item.description}
+                </p>
+                ${includedBlock}
+              </div>
+            </div>
+
+            <!-- 底部加入一日節奏按鈕 -->
+            <div class="px-5 pb-5 pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+              <span class="text-[11px] text-indigo-200/60">排入光翼日常節奏</span>
+              <button
+                onclick="scheduleFacilityToRhythm('${item.id}')"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-white/15 hover:bg-sunbeam-400 text-white hover:text-twilight-950 active:scale-95 transition-all cursor-pointer"
+              >
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>加入今日排程</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // =========================================================================
+    // 9. 光翼日常節奏模擬器邏輯
+    // =========================================================================
+    function initRhythmSelects() {
+      const slots = ['morning', 'afternoon', 'evening'];
+      const groups = [
+        '男生生活區 - 男生熱鬧區',
+        '男生生活區 - 男生安靜區',
+        '女生生活區 - 女生熱鬧區',
+        '女生生活區 - 女生安靜區',
+        '中央共同區 - 家庭與寵物區',
+        '中央共同區 - 男女綜合交流區'
+      ];
+
+      const optionsMarkup = `
+        <option value="">-- 請選擇此時段前往的建設 --</option>
+        ${groups.map(grp => {
+          const [mZ, sZ] = grp.split(' - ');
+          const items = FACILITIES_DATA.filter(f => f.mainZone === mZ && f.subZone === sZ);
+          return `
+            <optgroup label="${grp}">
+              ${items.map(f => `<option value="${f.id}">${f.name}（${f.subZone}）</option>`).join('')}
+            </optgroup>
+          `;
+        }).join('')}
+      `;
+
+      slots.forEach(s => {
+        const sel = document.getElementById(`rhythm-select-${s}`);
+        if (sel) {
+          sel.innerHTML = optionsMarkup;
+          sel.value = rhythmSchedule[s] || '';
+        }
+      });
+    }
+
+    function scheduleFacilityToRhythm(facilityId) {
+      const fac = FACILITIES_DATA.find(f => f.id === facilityId);
+      if (!fac) return;
+
+      let slot = 'morning';
+      if (fac.isApartment) {
+        slot = 'evening';
+      } else if (!rhythmSchedule.morning) {
+        slot = 'morning';
+      } else if (!rhythmSchedule.afternoon) {
+        slot = 'afternoon';
+      } else if (!rhythmSchedule.evening) {
+        slot = 'evening';
+      } else {
+        slot = 'afternoon';
+      }
+
+      rhythmSchedule[slot] = facilityId;
+      updateRhythmDashboard();
+
+      const slotNames = { morning: '上午時段', afternoon: '下午時段', evening: '晚上時段' };
+      showSkyToast(`已將「${fac.name}（${fac.subZone}）」排入${slotNames[slot]}！`);
+    }
+
+    function onRhythmSelectChange(slot, val) {
+      rhythmSchedule[slot] = val;
+      updateRhythmDashboard();
+    }
+
+    function clearRhythmSlot(slot) {
+      rhythmSchedule[slot] = '';
+      updateRhythmDashboard();
+    }
+
+    function resetRhythmSlots() {
+      rhythmSchedule = { morning: '', afternoon: '', evening: '' };
+      updateRhythmDashboard();
+      showSkyToast('已清空今日三時段行程');
+    }
+
+    function applyLifestylePreset(preset) {
+      if (preset === 'speed-reading') {
+        rhythmSchedule = {
+          morning: 'm-active-1',  // 汽機車賽道
+          afternoon: 'm-quiet-4', // 透光大圖書館
+          evening: 'm-quiet-5'    // 隔音簡約大公寓
+        };
+        showSkyToast('已套用「熱血競速與靜謐閱讀」生活提案！');
+      } else if (preset === 'shop-craft') {
+        rhythmSchedule = {
+          morning: 'f-active-1',  // 大型購物商場
+          afternoon: 'f-quiet-5', // 室內手作教室
+          evening: 'f-quiet-6'    // 隔音簡約大公寓
+        };
+        showSkyToast('已套用「閨蜜逛街與手作時光」生活提案！');
+      } else if (preset === 'family-pet') {
+        rhythmSchedule = {
+          morning: 'c-family-1',  // 兒童遊樂園
+          afternoon: 'c-family-4',// 大型寵物公園
+          evening: 'c-family-6'   // 寵物友善餐廳
+        };
+        showSkyToast('已套用「中央親子與毛孩週末」生活提案！');
+      } else if (preset === 'cross-date') {
+        rhythmSchedule = {
+          morning: 'f-quiet-2',     // 高級料理教室
+          afternoon: 'c-exchange-1', // 全功能交流中心
+          evening: 'f-active-5'     // 隔音簡約大公寓
+        };
+        showSkyToast('已套用「跨區全功能約會日」生活提案！');
+      }
+      updateRhythmDashboard();
+    }
+
+    function updateRhythmDashboard() {
+      const slots = ['morning', 'afternoon', 'evening'];
+      let vitality = 10;
+      let resonance = 10;
+      let serenity = 20;
+      let hasEveningApartment = false;
+      let filledCount = 0;
+
+      slots.forEach(slot => {
+        const id = rhythmSchedule[slot];
+        const sel = document.getElementById(`rhythm-select-${slot}`);
+        const imgEl = document.getElementById(`slot-img-${slot}`);
+        const zoneEl = document.getElementById(`slot-zone-${slot}`);
+        if (sel) sel.value = id || '';
+
+        if (id) {
+          const fac = FACILITIES_DATA.find(f => f.id === id);
+          if (fac) {
+            filledCount++;
+            vitality += fac.stats.vitality;
+            resonance += fac.stats.resonance;
+            serenity += fac.stats.serenity;
+            if (slot === 'evening' && fac.isApartment) {
+              hasEveningApartment = true;
+            }
+            if (imgEl) imgEl.src = fac.sceneImage;
+            if (zoneEl) zoneEl.textContent = `${fac.mainZone} · ${fac.subZone}`;
+          }
+        } else {
+          if (zoneEl) zoneEl.textContent = '尚未安排領域';
+        }
+      });
+
+      if (filledCount === 0) {
+        vitality = 0;
+        resonance = 0;
+        serenity = 0;
+      } else {
+        vitality = Math.min(100, vitality);
+        resonance = Math.min(100, resonance);
+        serenity = hasEveningApartment ? 100 : Math.min(82, serenity);
+      }
+
+      document.getElementById('gauge-vitality-val').textContent = `${vitality}%`;
+      document.getElementById('gauge-vitality-bar').style.width = `${vitality}%`;
+
+      document.getElementById('gauge-resonance-val').textContent = `${resonance}%`;
+      document.getElementById('gauge-resonance-bar').style.width = `${resonance}%`;
+
+      document.getElementById('gauge-serenity-val').textContent = `${serenity}%`;
+      document.getElementById('gauge-serenity-bar').style.width = `${serenity}%`;
+
+      const crownBadge = document.getElementById('serenity-crown-badge');
+      const tipBox = document.getElementById('serenity-tip-box');
+
+      if (hasEveningApartment) {
+        crownBadge.classList.remove('hidden');
+        crownBadge.classList.add('inline-flex');
+        tipBox.className = 'mt-7 p-4 rounded-2xl bg-sunbeam-400/20 border border-sunbeam-400/60 text-xs leading-relaxed text-sunbeam-200 transition-all shadow-[0_0_24px_rgba(255,209,102,0.22)]';
+        tipBox.innerHTML = '✨ <strong>已啟動極致靜默隔音模式！</strong>夜晚回到「隔音簡約大公寓」，隔音休憩品質（Serenity）已達 <strong>100% 滿格</strong>，斗篷光翼完全充能！';
+      } else {
+        crownBadge.classList.add('hidden');
+        crownBadge.classList.remove('inline-flex');
+        tipBox.className = 'mt-7 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs leading-relaxed text-indigo-100/85 transition-all';
+        tipBox.innerHTML = '✨ <strong>光翼提示：</strong>將晚上時段安排回到任一分區的<strong>「隔音簡約大公寓」</strong>，隔音休憩品質（Serenity）將立即充能至 <strong>100% 滿格</strong>！';
+      }
+    }
+
+    // =========================================================================
+    // 10. 光影社區居民通行證生成器邏輯
+    // =========================================================================
+    function initPassCustomizer() {
+      // 1. 渲染斗篷光翼色彩按鈕
+      const capeBox = document.getElementById('cape-color-options');
+      capeBox.innerHTML = CAPE_EMBLEMS.map(cape => {
+        const isSelected = cape.id === selectedCape.id;
+        return `
+          <button
+            type="button"
+            onclick="selectCapeEmblem('${cape.id}')"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border transition-all cursor-pointer ${
+              isSelected
+                ? 'bg-white/20 border-sunbeam-400 text-white shadow-[0_0_14px_rgba(255,209,102,0.35)]'
+                : 'bg-white/5 border-white/15 text-indigo-200/80 hover:border-white/35'
+            }"
+          >
+            <span class="w-2.5 h-2.5 rotate-45 inline-block" style="background-color: ${cape.color}; box-shadow: 0 0 8px ${cape.color};"></span>
+            <span>${cape.label}</span>
+          </button>
+        `;
+      }).join('');
+
+      // 2. 渲染 6 張領域場景底圖按鈕
+      const backdropGrid = document.getElementById('pass-backdrop-grid');
+      backdropGrid.innerHTML = REALMS_DATA.map(realm => {
+        const isSelected = realm.id === selectedPassRealm.id;
+        return `
+          <button
+            type="button"
+            onclick="selectPassBackdrop('${realm.id}')"
+            class="group relative rounded-2xl overflow-hidden border-2 text-left h-16 transition-all cursor-pointer ${
+              isSelected
+                ? 'border-sunbeam-400 shadow-[0_0_16px_rgba(255,209,102,0.45)] scale-[1.02]'
+                : 'border-white/15 opacity-75 hover:opacity-100 hover:border-sunbeam-300/60'
+            }"
+          >
+            <img
+              src="${realm.image}"
+              alt="${realm.name}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-twilight-950/90 via-twilight-950/35 to-transparent"></div>
+            <div class="absolute bottom-1.5 left-2 right-2 text-[11px] font-extrabold text-white truncate">
+              ${realm.name}
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCapeEmblem(capeId) {
+      const found = CAPE_EMBLEMS.find(c => c.id === capeId);
+      if (!found) return;
+      selectedCape = found;
+      initPassCustomizer();
+      refreshResidentPass();
+    }
+
+    function selectPassBackdrop(realmId) {
+      const found = REALMS_DATA.find(r => r.id === realmId);
+      if (!found) return;
+      selectedPassRealm = found;
+      initPassCustomizer();
+      refreshResidentPass();
+    }
+
+    function refreshResidentPass() {
+      const raw = document.getElementById('resident-name-input').value.trim();
+      document.getElementById('pass-card-nickname').textContent = raw || '星光新居民';
+      document.getElementById('pass-card-realm').textContent = selectedPassRealm.name;
+      document.getElementById('pass-card-artwork').src = selectedPassRealm.image;
+      document.getElementById('pass-card-cape-label').textContent = selectedCape.label;
+
+      const emblemBox = document.getElementById('pass-cape-emblem');
+      emblemBox.style.color = selectedCape.color;
+      emblemBox.style.borderColor = selectedCape.color;
+      emblemBox.style.boxShadow = `0 0 18px ${selectedCape.color}55`;
+    }
+
+    function mintResidentPass() {
+      refreshResidentPass();
+      const num = Math.floor(1000 + Math.random() * 9000);
+      mintedPassId = `SKY-2026-${num}`;
+      document.getElementById('pass-card-id').textContent = mintedPassId;
+
+      const statusBadge = document.getElementById('pass-card-status');
+      statusBadge.textContent = '★ 已完成星光登記';
+      statusBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-sunbeam-400 text-twilight-950 shadow-sm';
+
+      const nick = document.getElementById('pass-card-nickname').textContent;
+      showSkyToast(`已為「${nick}」鑄造【${selectedPassRealm.name}】居民通行證（${mintedPassId}）！`);
+    }
+
+    function tiltPassCard(e) {
+      const card = document.getElementById('resident-pass-card');
+      const sheen = document.getElementById('pass-sheen-layer');
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rx = ((y - rect.height / 2) / (rect.height / 2)) * -6;
+      const ry = ((x - rect.width / 2) / (rect.width / 2)) * 6;
+
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+      sheen.style.backgroundPosition = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
+    }
+
+    function resetPassCardTilt() {
+      const card = document.getElementById('resident-pass-card');
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+    }
+
+    function copyPassIdToClipboard() {
+      const code = document.getElementById('pass-card-id').textContent;
+      const helper = document.createElement('textarea');
+      helper.value = code;
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      try {
+        document.execCommand('copy');
+        showSkyToast(`已複製星光居民編號：${code}`);
+      } catch (err) {
+        showSkyToast(`您的星光居民編號為：${code}`);
+      }
+      document.body.removeChild(helper);
+    }
+
+    // =========================================================================
+    // 11. 手機導覽選單與星光浮動訊息提示 Toast
+    // =========================================================================
+    function toggleMobileNav() {
+      document.getElementById('mobile-nav').classList.toggle('hidden');
+    }
+
+    function closeMobileNav() {
+      document.getElementById('mobile-nav').classList.add('hidden');
+    }
+
+    let toastTimer = null;
+    function showSkyToast(message) {
+      const box = document.getElementById('sky-toast');
+      const txt = document.getElementById('sky-toast-text');
+      txt.textContent = message;
+
+      box.classList.remove('opacity-0', 'translate-y-3');
+      box.classList.add('opacity-100', 'translate-y-0');
+
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.add('opacity-0', 'translate-y-3');
+        box.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+
+    // =========================================================================
+    // 12. 啟動初始化
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      createSkyParticles();
+      renderSkyParticles();
+
+      initHeroCarousel();
+      renderRealmsShowcase();
+
+      updateDirectoryFilterUI();
+      renderDirectoryCards();
+
+      initRhythmSelects();
+      updateRhythmDashboard();
+
+      initPassCustomizer();
+      refreshResidentPass();
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
